@@ -1,22 +1,48 @@
 //
 //  AppDelegate.swift
-//  Bridger
+//  BridgeScoring
 //
-//  Created by Eduard Lev on 4/25/18.
+//  Created by Eduard Lev on 4/23/18.
 //  Copyright © 2018 Eduard Levshteyn. All rights reserved.
 //
 
 import UIKit
 import CoreData
+import Material
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static var persistentContainer: NSPersistentContainer {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    }
+
+    static var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+
     var window: UIWindow?
 
 
+    // Programmatically create and display view controllers here.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow(frame: Screen.bounds)
+        // Holds the UIViewControllers that will be used in the tab & navigation bar.
+        var viewControllers = [GameViewController(), BidsViewController()]
+
+        // Creating the wrapper Tab Bar View Controller that will contain the views for this application.
+        let tabsController = AppTabsController(viewControllers: viewControllers)
+
+        // The toolbar controller has as its root view controller the tabs controller!
+        let toolbarController = AppToolbarController(rootViewController: tabsController)
+
+        // For later implementation.. FAB menu.
+        //let menuController = AppFABMenuController...
+
+        window!.rootViewController = toolbarController
+        //window!.rootViewController = AppTabsController(viewControllers: [GameViewController(), BidsViewController()])
+        window!.makeKeyAndVisible()
         return true
     }
 
@@ -53,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Bridger")
+        let container = NSPersistentContainer(name: "BridgeScoring")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -90,4 +116,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
 
