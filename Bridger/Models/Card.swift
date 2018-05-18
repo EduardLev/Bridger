@@ -18,13 +18,15 @@ struct Card {
             return rawValue
         }
 
-        case spades = "♠"
-        case hearts = "♥"
-        case diamonds = "♦"
-        case clubs = "♣"
-        case notrump = ""
+        case spades = "Spades"
+        case hearts = "Hearts"
+        case diamonds = "Diamonds"
+        case clubs = "Clubs"
+        case notrump = "No Trump"
 
         static var all = [Suit.spades, .hearts, .diamonds, .clubs, .notrump]
+        static var allRawValues =
+            Suit.all.map() { $0.rawValue } 
     }
 
     enum Rank: CustomStringConvertible {

@@ -7,23 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D446CAD62091131000A43288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAD52091131000A43288 /* AppDelegate.swift */; };
-		D446CAD82091131000A43288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAD72091131000A43288 /* ViewController.swift */; };
+		6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */; };
 		D446CADB2091131000A43288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAD92091131000A43288 /* Main.storyboard */; };
 		D446CADE2091131000A43288 /* Bridger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D446CADC2091131000A43288 /* Bridger.xcdatamodeld */; };
 		D446CAE02091131100A43288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D446CADF2091131100A43288 /* Assets.xcassets */; };
 		D446CAE32091131100A43288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAE12091131100A43288 /* LaunchScreen.storyboard */; };
+		D446CAEB2091134B00A43288 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */; };
+		D446CAEE2091137D00A43288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAED2091137D00A43288 /* AppDelegate.swift */; };
+		D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAEF2091138500A43288 /* GamesNavigationController.swift */; };
+		D446CAF32091138500A43288 /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF02091138500A43288 /* AppTabsController.swift */; };
+		D446CAF42091138500A43288 /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF12091138500A43288 /* AppToolbarController.swift */; };
+		D446CAFA2091139500A43288 /* BidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF62091139500A43288 /* BidsViewController.swift */; };
+		D446CAFC2091139500A43288 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF82091139500A43288 /* GameViewController.swift */; };
+		D446CAFD2091139500A43288 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF92091139500A43288 /* TableViewController.swift */; };
+		D446CB03209113A800A43288 /* Bid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAFF209113A800A43288 /* Bid.swift */; };
+		D446CB04209113A800A43288 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB00209113A800A43288 /* Player.swift */; };
+		D446CB05209113A800A43288 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB01209113A800A43288 /* Game.swift */; };
+		D446CB06209113A800A43288 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB02209113A800A43288 /* Card.swift */; };
+		D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.release.xcconfig"; sourceTree = "<group>"; };
+		482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.debug.xcconfig"; sourceTree = "<group>"; };
+		A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bridger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D446CAD22091131000A43288 /* Bridger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bridger.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D446CAD52091131000A43288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D446CAD72091131000A43288 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D446CADA2091131000A43288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D446CADD2091131000A43288 /* Bridger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bridger.xcdatamodel; sourceTree = "<group>"; };
 		D446CADF2091131100A43288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D446CAE22091131100A43288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D446CAE42091131100A43288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
+		D446CAED2091137D00A43288 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D446CAEF2091138500A43288 /* GamesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesNavigationController.swift; sourceTree = "<group>"; };
+		D446CAF02091138500A43288 /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
+		D446CAF12091138500A43288 /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
+		D446CAF62091139500A43288 /* BidsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidsViewController.swift; sourceTree = "<group>"; };
+		D446CAF82091139500A43288 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D446CAF92091139500A43288 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		D446CAFF209113A800A43288 /* Bid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bid.swift; sourceTree = "<group>"; };
+		D446CB00209113A800A43288 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D446CB01209113A800A43288 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		D446CB02209113A800A43288 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBidTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BDC2C72BDECA3E852142601 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */,
+				0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D446CAC92091131000A43288 = {
 			isa = PBXGroup;
 			children = (
 				D446CAD42091131000A43288 /* Bridger */,
 				D446CAD32091131000A43288 /* Products */,
+				2BDC2C72BDECA3E852142601 /* Pods */,
+				DCB290A943B86087372D2E60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +94,66 @@
 		D446CAD42091131000A43288 /* Bridger */ = {
 			isa = PBXGroup;
 			children = (
-				D446CAD52091131000A43288 /* AppDelegate.swift */,
-				D446CAD72091131000A43288 /* ViewController.swift */,
-				D446CAD92091131000A43288 /* Main.storyboard */,
+				D446CAED2091137D00A43288 /* AppDelegate.swift */,
+				D446CAF52091138A00A43288 /* Wrapper Controllers */,
+				D446CB07209113AD00A43288 /* Models */,
+				D446CAEC2091136300A43288 /* Storyboards */,
 				D446CADF2091131100A43288 /* Assets.xcassets */,
-				D446CAE12091131100A43288 /* LaunchScreen.storyboard */,
 				D446CAE42091131100A43288 /* Info.plist */,
 				D446CADC2091131000A43288 /* Bridger.xcdatamodeld */,
+				D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */,
 			);
 			path = Bridger;
+			sourceTree = "<group>";
+		};
+		D446CAEC2091136300A43288 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D446CAD92091131000A43288 /* Main.storyboard */,
+				D446CAE12091131100A43288 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D446CAF52091138A00A43288 /* Wrapper Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D446CAF02091138500A43288 /* AppTabsController.swift */,
+				D446CAF12091138500A43288 /* AppToolbarController.swift */,
+				D446CAEF2091138500A43288 /* GamesNavigationController.swift */,
+				D446CAFE2091139900A43288 /* View Controllers */,
+			);
+			path = "Wrapper Controllers";
+			sourceTree = "<group>";
+		};
+		D446CAFE2091139900A43288 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D446CAF62091139500A43288 /* BidsViewController.swift */,
+				D446CAF82091139500A43288 /* GameViewController.swift */,
+				D446CAF92091139500A43288 /* TableViewController.swift */,
+				D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D446CB07209113AD00A43288 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D446CAFF209113A800A43288 /* Bid.swift */,
+				D446CB02209113A800A43288 /* Card.swift */,
+				D446CB01209113A800A43288 /* Game.swift */,
+				D446CB00209113A800A43288 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DCB290A943B86087372D2E60 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D446CAE72091131100A43288 /* Build configuration list for PBXNativeTarget "Bridger" */;
 			buildPhases = (
+				092622C99E332A5F28935F80 /* [CP] Check Pods Manifest.lock */,
 				D446CACE2091131000A43288 /* Sources */,
 				D446CACF2091131000A43288 /* Frameworks */,
 				D446CAD02091131000A43288 /* Resources */,
+				FC641EB091A605537B074D51 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +224,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		092622C99E332A5F28935F80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bridger-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC641EB091A605537B074D51 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bridger/Pods-Bridger-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bridger/Pods-Bridger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D446CACE2091131000A43288 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D446CAEE2091137D00A43288 /* AppDelegate.swift in Sources */,
+				D446CAF42091138500A43288 /* AppToolbarController.swift in Sources */,
 				D446CADE2091131000A43288 /* Bridger.xcdatamodeld in Sources */,
-				D446CAD82091131000A43288 /* ViewController.swift in Sources */,
-				D446CAD62091131000A43288 /* AppDelegate.swift in Sources */,
+				D446CB05209113A800A43288 /* Game.swift in Sources */,
+				D446CAFD2091139500A43288 /* TableViewController.swift in Sources */,
+				D446CB04209113A800A43288 /* Player.swift in Sources */,
+				D446CAFA2091139500A43288 /* BidsViewController.swift in Sources */,
+				D446CAFC2091139500A43288 /* GameViewController.swift in Sources */,
+				D446CAF32091138500A43288 /* AppTabsController.swift in Sources */,
+				D446CB06209113A800A43288 /* Card.swift in Sources */,
+				D446CAEB2091134B00A43288 /* FetchedResultsTableViewController.swift in Sources */,
+				D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */,
+				D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */,
+				D446CB03209113A800A43288 /* Bid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,11 +425,13 @@
 		};
 		D446CAE82091131100A43288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3987LS8PQB;
 				INFOPLIST_FILE = Bridger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,11 +445,13 @@
 		};
 		D446CAE92091131100A43288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3987LS8PQB;
 				INFOPLIST_FILE = Bridger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

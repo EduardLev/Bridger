@@ -12,13 +12,13 @@ import Material
 class AppToolbarController: ToolbarController {
     fileprivate var menuButton: IconButton!
     fileprivate var starButton: IconButton!
-    fileprivate var searchButton: IconButton!
+    fileprivate var addButton: IconButton!
 
     open override func prepare() {
         super.prepare()
         prepareMenuButton()
         prepareStarButton()
-        prepareSearchButton()
+        prepareAddButton()
         prepareStatusBar()
         prepareToolbar()
     }
@@ -35,9 +35,10 @@ extension AppToolbarController {
         starButton.pulseColor = .white
     }
 
-    fileprivate func prepareSearchButton() {
-        searchButton = IconButton(image: Icon.cm.search, tintColor: .white)
-        searchButton.pulseColor = .white
+    fileprivate func prepareAddButton() {
+        addButton = IconButton(image: Icon.cm.add, tintColor: .white)
+        addButton.pulseColor = .white
+        addButton.addTarget(self, action: AppToolbarController.addButtonTapped, for: .touchUpInside)
     }
 
     fileprivate func prepareStatusBar() {
@@ -58,7 +59,20 @@ extension AppToolbarController {
         toolbar.detailLabel.text = "A bridge scoring application"
 
         toolbar.leftViews = [menuButton]
-        toolbar.rightViews = [starButton, searchButton]
+        toolbar.rightViews = [starButton, addButton]
     }
+}
 
+fileprivate extension AppToolbarController {
+    @objc
+    fileprivate func addNewBid() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let inputBidTableViewController = storyboard.instantiateViewController(withIdentifier: AppToolbarController.inputBidVCIdentifier)
+        self.toolbarController?.present(inputBidTableViewController, animated: true, completion: nil)
+    }
+}
+
+fileprivate extension AppToolbarController {
+    static let addButtonTapped = #selector(addNewBid)
+    static let inputBidVCIdentifier = "InputBid"
 }

@@ -7,89 +7,132 @@
 //
 
 import UIKit
+import Material
 
 class InputBidTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: View Properties
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    /// View outlet for the N/E/W/S buttons which determine
+    /// the declarer for this particular bid.
+    /// Buttons will be circles since the cornerRadius is 1/2 of the width of the button
+    @IBOutlet var declarerButtons: [UIButton]! {
+        didSet {
+            for button in declarerButtons {
+                button.layer.cornerRadius = button.frame.size.width/2
+            }
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /// View outlet for the "Trump" Buttons
+    @IBOutlet var trumpButtons: [UIButton]!
+
+    /** Links all buttons 'touch Down' event to a "press down" animation. */
+    @IBAction func touchDownButton(_ sender: UIButton) {
+        animatePressDown(forButton: sender)
     }
 
-    // MARK: - Table view data source
+    // MARK: Declarer Buttons Target - Action Events
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    /** Links the N/E/W/S buttons 'touch Up Outside' event to the required action. */
+    @IBAction func touchUpOutsideButton(_ sender: UIButton) {
+        selectButtonClicked(asButton: sender)
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    /** Links the N/E/W/S buttons 'touch Up Inside' event to the required action. */
+    @IBAction func touchUpInsideButton(_ sender: UIButton) {
+        selectButtonClicked(asButton: sender)
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    // MARK: Trump Buttons Target - Action Events
 
-        // Configure the cell...
+    // MARK: Animation Methods
 
-        return cell
-    }
+    /**
+     Animates the look of a button for 'touch down' events on button by a user.
+
+     - parameter sender: The button selected by the user
     */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func animatePressDown(forButton sender: UIButton) {
+        UIView.animate(withDuration: 0.02,
+                       delay: 0,
+                       options: UIViewAnimationOptions.curveLinear,
+                       animations: {
+                        sender.transform = CGAffineTransform(scaleX: Animation.buttonPressDownScale,
+                                                             y: Animation.buttonPressDownScale)
+        })
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    /**
+     Resizes the button back to its original size and changes the background color
+     so the user can see that this button is selected.
+     Also adds a "spring" action.
+
+     - parameter sender: The button selected by the user
+     */
+    fileprivate func animateSpringBackUp(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1,
+                       delay: 0,
+                       options: UIViewAnimationOptions.curveLinear,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity
+                        sender.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }, completion: { success in UIView.animate(withDuration: 0.1,
+                                                   delay: 0,
+                                                   options: .curveEaseInOut,
+                                                   animations: {
+                                                    sender.transform = CGAffineTransform.identity
+        }, completion: nil) })
     }
+
+    // MARK: Target Action Methods
+
+    /**
+     Selects a declarer - involves deselecting other buttons that were not pressed, along
+     with animating the selected button to "spring" into place.
+
+     - parameter sender: The button selected by the user
     */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    @IBAction func selectButtonClicked(asButton sender: UIButton) {
+        toggleButtonsEnabledStatus(sender)
+        animateSpringBackUp(sender)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    /**
+     Loops through the declarer buttons and disables those that were selected by the user.
+     Changes the background color of the selected & unselected buttons corresponding
+     to their status.
+
+     - parameter sender: The button selected by the user
+    */
+    fileprivate func toggleButtonsEnabledStatus(_ sender: UIButton) {
+
+        var selectedGroupOfButtons = [UIButton]()
+
+        // If it does, then it is a suit type button
+        if let buttonTitle = sender.titleLabel?.text {
+            if Card.Suit.allRawValues.contains(buttonTitle) {
+                selectedGroupOfButtons = trumpButtons
+            } else {
+                selectedGroupOfButtons = declarerButtons
+            }
+        }
+
+        for button in selectedGroupOfButtons {
+            button.alpha = (button == sender) ? 1 : 0.5
+        }
     }
-    */
+}
 
-    /*
-    // MARK: - Navigation
+// MARK: Private Constants
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension InputBidTableViewController {
+    private struct Colors {
+        static let selectedButtonColor = UIColor(red: 38/255, green: 220/255, blue: 40/255, alpha: 1.0)
+        static let unselectedButtonColor = UIColor(red: 38/255, green: 128/255, blue: 40/255, alpha: 1.0)
     }
-    */
 
+    private struct Animation {
+        static let buttonPressDownScale: CGFloat = 0.8
+    }
 }

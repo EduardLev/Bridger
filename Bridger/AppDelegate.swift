@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: Screen.bounds)
         // Holds the UIViewControllers that will be used in the tab & navigation bar.
-        var viewControllers = [GameViewController(), BidsViewController()]
+        let viewControllers = [GameViewController(), BidsViewController()]
 
         // Creating the wrapper Tab Bar View Controller that will contain the views for this application.
         let tabsController = AppTabsController(viewControllers: viewControllers)

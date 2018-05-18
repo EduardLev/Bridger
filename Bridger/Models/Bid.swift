@@ -39,7 +39,8 @@ struct Bid {
     /// The doubling status of the current bid
     private let doubled: DoubleStatus!
 
-    init(numberOfTricksBid: Int, trumpSuit: Card.Suit, declarer: Player, isVulnerable: Bool, isOpponentVulnerable: Bool, doubled: DoubleStatus) {
+    init(numberOfTricksBid: Int, trumpSuit: Card.Suit, declarer: Player, isVulnerable: Bool,
+         isOpponentVulnerable: Bool, doubled: DoubleStatus) {
         self.numberOfTricksBid = numberOfTricksBid
         self.trumpSuit = trumpSuit
         self.declarer = declarer

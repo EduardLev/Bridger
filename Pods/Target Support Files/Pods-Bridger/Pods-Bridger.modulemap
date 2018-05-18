@@ -1,0 +1,6 @@
+framework module Pods_Bridger {
+  umbrella header "Pods-Bridger-umbrella.h"
+
+  export *
+  module * { export * }
+}
