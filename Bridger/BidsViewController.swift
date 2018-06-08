@@ -11,10 +11,6 @@ import Material
 
 class BidsViewController: UIViewController {
 
-    private var Font: UIFont {
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(24.0))
-    }
-
     // View Outlets.
     @IBOutlet var tableView: UITableView!
     @IBOutlet var imageView: UIImageView!
@@ -22,9 +18,11 @@ class BidsViewController: UIViewController {
     @IBOutlet var emptyInstructionsLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
 
-    private var bids = [Bid]() {
+    // View Model
+    var game: Game = Store.shared.rootGame {
         didSet {
-            imageView.isHidden = (bids.count > 0 ? true : false)
+            tableView.reloadData()
+            title = game.name
         }
     }
 
@@ -36,29 +34,30 @@ class BidsViewController: UIViewController {
         prepareTableView()
         prepareImageView()
         prepareLabels()
-        /*v1.motionIdentifier = "v1"
-        v1.backgroundColor = Color.red.base
-        view.layout(v1).width(100).vertically().right()*/
+
+        tableView.dataSource = self
+        tableView.delegate = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChangeNotification(_:)), name: Store.changedNotification, object: nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("Bids viewWillAppear")
-    }
+    @objc func handleChangeNotification(_ notification: Notification) {
+        // handles changes to contents
+        guard let userInfo = notification.userInfo else { return }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("Bids viewDidAppear")
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("Bids viewWillDisappear")
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("Bids viewDidDisappear")
+        if let changeReason = userInfo[Game.changeReasonKey] as? String {
+            let oldValue = userInfo[Game.newValueKey]
+            let newValue = userInfo[Game.oldValueKey]
+            switch (changeReason, newValue, oldValue) {
+            case let (Game.removed, _, (oldIndex as Int)?):
+                tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .bottom)
+            case let (Game.added, (newIndex as Int)?, _):
+                tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .left)
+            default: tableView.reloadData()
+            }
+        } else {
+            tableView.reloadData()
+        }
     }
 }
 
@@ -66,6 +65,9 @@ extension BidsViewController {
     fileprivate func prepareTableView() {
         tableView = UITableView()
         tableView.frame = view.bounds
+        tableView.register(BidTableViewCell.self, forCellReuseIdentifier: bidCellReuseIdentifier)
+        view.addSubview(tableView)
+        view.layout(tableView).bottom().top().left().right()
     }
 
     // Configures the look of the tab button corresponding to this view controller.
@@ -92,15 +94,15 @@ extension BidsViewController {
         emptyLabel = UILabel()
         emptyLabel.textColor = Color.green.darken2
         emptyLabel.text = "   Empty..."
-        emptyLabel.font = Font
+        emptyLabel.font = font
         emptyLabel.adjustsFontForContentSizeCategory = true
     }
 
     fileprivate func prepareEmptyInstructionsLabel() {
         emptyInstructionsLabel = UILabel()
         emptyInstructionsLabel.textColor = Color.green.darken2
-        emptyInstructionsLabel.text = "To add a bid to this game, press the '+' button on the top right bar!"
-        emptyInstructionsLabel.font = Font
+        emptyInstructionsLabel.text = "To add a bid to this game, press the '+' button on the top right bar."
+        emptyInstructionsLabel.font = font
         emptyInstructionsLabel.numberOfLines = 2
         //emptyInstructionsLabel.lineBreakMode = .byWordWrapping
         emptyInstructionsLabel.adjustsFontSizeToFitWidth = true
@@ -127,16 +129,40 @@ extension BidsViewController {
 }
 
 extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if game.bids.count > 0 {
+            stackView.isHidden = true
+            tableView.separatorStyle = .singleLine
+            return 1
+        } else {
+            stackView.isHidden = false
+            tableView.separatorStyle = .none
+            return 0
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return game.bids.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let bid = game.bids[indexPath.row] // gets the bid from the model
+        let cell = tableView.dequeueReusableCell(withIdentifier: bidCellReuseIdentifier, for: indexPath) as! BidTableViewCell
+        cell.prepare(declarer: bid.declarer.rawValue, tricks: bid.tricksBid, trump: bid.trumpSuit.rawValue)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true // OK
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        game.removeBid(game.bids[indexPath.row])
     }
 }
 
@@ -151,6 +177,14 @@ extension BidsViewController {
 
     private var textLabelWidth: CGFloat {
         return self.view.frame.size.width * Layout.textLabelDimensionRatio
+    }
+
+    private var font: UIFont {
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(24.0))
+    }
+
+    private var bidCellReuseIdentifier: String {
+        return "Bid Cell"
     }
 }
 

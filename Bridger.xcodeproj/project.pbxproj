@@ -8,48 +8,52 @@
 
 /* Begin PBXBuildFile section */
 		6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */; };
+		D433509620B337F400FCB874 /* BidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433509520B337F400FCB874 /* BidTableViewCell.swift */; };
 		D446CADB2091131000A43288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAD92091131000A43288 /* Main.storyboard */; };
 		D446CADE2091131000A43288 /* Bridger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D446CADC2091131000A43288 /* Bridger.xcdatamodeld */; };
 		D446CAE02091131100A43288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D446CADF2091131100A43288 /* Assets.xcassets */; };
 		D446CAE32091131100A43288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAE12091131100A43288 /* LaunchScreen.storyboard */; };
-		D446CAEB2091134B00A43288 /* FetchedResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */; };
 		D446CAEE2091137D00A43288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAED2091137D00A43288 /* AppDelegate.swift */; };
 		D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAEF2091138500A43288 /* GamesNavigationController.swift */; };
 		D446CAF32091138500A43288 /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF02091138500A43288 /* AppTabsController.swift */; };
 		D446CAF42091138500A43288 /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF12091138500A43288 /* AppToolbarController.swift */; };
 		D446CAFA2091139500A43288 /* BidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF62091139500A43288 /* BidsViewController.swift */; };
 		D446CAFC2091139500A43288 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF82091139500A43288 /* GameViewController.swift */; };
-		D446CAFD2091139500A43288 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAF92091139500A43288 /* TableViewController.swift */; };
 		D446CB03209113A800A43288 /* Bid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CAFF209113A800A43288 /* Bid.swift */; };
 		D446CB04209113A800A43288 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB00209113A800A43288 /* Player.swift */; };
 		D446CB05209113A800A43288 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB01209113A800A43288 /* Game.swift */; };
 		D446CB06209113A800A43288 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB02209113A800A43288 /* Card.swift */; };
 		D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */; };
+		D49825D920C58EB3005CE16E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825D820C58EB3005CE16E /* Animator.swift */; };
+		D49825DC20C5900B005CE16E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825DB20C5900B005CE16E /* UIViewController+Alert.swift */; };
+		D49825DE20C59DE4005CE16E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825DD20C59DE4005CE16E /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.release.xcconfig"; sourceTree = "<group>"; };
 		482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.debug.xcconfig"; sourceTree = "<group>"; };
 		A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bridger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D433509520B337F400FCB874 /* BidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidTableViewCell.swift; sourceTree = "<group>"; };
 		D446CAD22091131000A43288 /* Bridger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bridger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D446CADA2091131000A43288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D446CADD2091131000A43288 /* Bridger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bridger.xcdatamodel; sourceTree = "<group>"; };
 		D446CADF2091131100A43288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D446CAE22091131100A43288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D446CAE42091131100A43288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultsTableViewController.swift; sourceTree = "<group>"; };
 		D446CAED2091137D00A43288 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D446CAEF2091138500A43288 /* GamesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamesNavigationController.swift; sourceTree = "<group>"; };
 		D446CAF02091138500A43288 /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		D446CAF12091138500A43288 /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
 		D446CAF62091139500A43288 /* BidsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidsViewController.swift; sourceTree = "<group>"; };
 		D446CAF82091139500A43288 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		D446CAF92091139500A43288 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D446CAFF209113A800A43288 /* Bid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bid.swift; sourceTree = "<group>"; };
 		D446CB00209113A800A43288 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D446CB01209113A800A43288 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D446CB02209113A800A43288 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBidTableViewController.swift; sourceTree = "<group>"; };
+		D49825D820C58EB3005CE16E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		D49825DB20C5900B005CE16E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		D49825DD20C59DE4005CE16E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +99,17 @@
 			isa = PBXGroup;
 			children = (
 				D446CAED2091137D00A43288 /* AppDelegate.swift */,
+				D446CAF62091139500A43288 /* BidsViewController.swift */,
+				D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */,
+				D433509520B337F400FCB874 /* BidTableViewCell.swift */,
+				D446CAF82091139500A43288 /* GameViewController.swift */,
+				D49825DA20C58FBD005CE16E /* Utilities */,
 				D446CAF52091138A00A43288 /* Wrapper Controllers */,
-				D446CB07209113AD00A43288 /* Models */,
+				D446CB07209113AD00A43288 /* App Models */,
 				D446CAEC2091136300A43288 /* Storyboards */,
 				D446CADF2091131100A43288 /* Assets.xcassets */,
 				D446CAE42091131100A43288 /* Info.plist */,
 				D446CADC2091131000A43288 /* Bridger.xcdatamodeld */,
-				D446CAEA2091134B00A43288 /* FetchedResultsTableViewController.swift */,
 			);
 			path = Bridger;
 			sourceTree = "<group>";
@@ -121,31 +129,29 @@
 				D446CAF02091138500A43288 /* AppTabsController.swift */,
 				D446CAF12091138500A43288 /* AppToolbarController.swift */,
 				D446CAEF2091138500A43288 /* GamesNavigationController.swift */,
-				D446CAFE2091139900A43288 /* View Controllers */,
 			);
 			path = "Wrapper Controllers";
 			sourceTree = "<group>";
 		};
-		D446CAFE2091139900A43288 /* View Controllers */ = {
+		D446CB07209113AD00A43288 /* App Models */ = {
 			isa = PBXGroup;
 			children = (
-				D446CAF62091139500A43288 /* BidsViewController.swift */,
-				D446CAF82091139500A43288 /* GameViewController.swift */,
-				D446CAF92091139500A43288 /* TableViewController.swift */,
-				D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		D446CB07209113AD00A43288 /* Models */ = {
-			isa = PBXGroup;
-			children = (
+				D49825DD20C59DE4005CE16E /* Store.swift */,
 				D446CAFF209113A800A43288 /* Bid.swift */,
 				D446CB02209113A800A43288 /* Card.swift */,
 				D446CB01209113A800A43288 /* Game.swift */,
 				D446CB00209113A800A43288 /* Player.swift */,
 			);
-			path = Models;
+			path = "App Models";
+			sourceTree = "<group>";
+		};
+		D49825DA20C58FBD005CE16E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D49825D820C58EB3005CE16E /* Animator.swift */,
+				D49825DB20C5900B005CE16E /* UIViewController+Alert.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		DCB290A943B86087372D2E60 /* Frameworks */ = {
@@ -273,14 +279,16 @@
 				D446CAEE2091137D00A43288 /* AppDelegate.swift in Sources */,
 				D446CAF42091138500A43288 /* AppToolbarController.swift in Sources */,
 				D446CADE2091131000A43288 /* Bridger.xcdatamodeld in Sources */,
+				D49825DE20C59DE4005CE16E /* Store.swift in Sources */,
+				D49825DC20C5900B005CE16E /* UIViewController+Alert.swift in Sources */,
+				D433509620B337F400FCB874 /* BidTableViewCell.swift in Sources */,
+				D49825D920C58EB3005CE16E /* Animator.swift in Sources */,
 				D446CB05209113A800A43288 /* Game.swift in Sources */,
-				D446CAFD2091139500A43288 /* TableViewController.swift in Sources */,
 				D446CB04209113A800A43288 /* Player.swift in Sources */,
 				D446CAFA2091139500A43288 /* BidsViewController.swift in Sources */,
 				D446CAFC2091139500A43288 /* GameViewController.swift in Sources */,
 				D446CAF32091138500A43288 /* AppTabsController.swift in Sources */,
 				D446CB06209113A800A43288 /* Card.swift in Sources */,
-				D446CAEB2091134B00A43288 /* FetchedResultsTableViewController.swift in Sources */,
 				D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */,
 				D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */,
 				D446CB03209113A800A43288 /* Bid.swift in Sources */,

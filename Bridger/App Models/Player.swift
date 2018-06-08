@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Player: String {
+public enum Player: String, Codable {
     case north = "N"
     case east = "E"
     case west = "W"

@@ -67,7 +67,7 @@ fileprivate extension AppToolbarController {
     @objc
     fileprivate func addNewBid() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let inputBidTableViewController = storyboard.instantiateViewController(withIdentifier: AppToolbarController.inputBidVCIdentifier)
+        guard let inputBidTableViewController = storyboard.instantiateViewController(withIdentifier: AppToolbarController.inputBidVCIdentifier) as? InputBidTableViewController else { return }
         self.toolbarController?.present(inputBidTableViewController, animated: true, completion: nil)
     }
 }

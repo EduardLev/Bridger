@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Card {
+public struct Card {
     var suit: Suit
     var rank: Rank
 
     /// Stores the suit (spades, hearts, diamonds, clubs, notrump) of the card
-    enum Suit: String, CustomStringConvertible {
+    enum Suit: String, CustomStringConvertible, Codable {
         var description: String {
             return rawValue
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YN-3f-Nl3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YN-3f-Nl3">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,6 +45,9 @@
                                             <integer key="value" value="6"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="enterBidDidTouchUpInside:" destination="8YN-3f-Nl3" eventType="touchUpInside" id="So0-BU-gjh"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,7 +183,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Tab-y5-ft1" secondAttribute="height" multiplier="488:522" id="EYR-C4-SvJ"/>
                                                             </constraints>
-                                                            <state key="normal" title="Spades" image="Spade"/>
+                                                            <state key="normal" title="Spades" image="Spades"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Spades"/>
                                                             </userDefinedRuntimeAttributes>
@@ -196,7 +199,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="GM7-VH-dHK" secondAttribute="height" multiplier="316:504" id="uTW-Hd-53l"/>
                                                             </constraints>
-                                                            <state key="normal" title="Diamonds" image="Diamond"/>
+                                                            <state key="normal" title="Diamonds" image="Diamonds"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Diamonds"/>
                                                             </userDefinedRuntimeAttributes>
@@ -212,7 +215,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="rsb-3R-qvq" secondAttribute="height" multiplier="488:447" id="oqu-eR-YnI"/>
                                                             </constraints>
-                                                            <state key="normal" title="Hearts" image="Heart"/>
+                                                            <state key="normal" title="Hearts" image="Hearts"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Hearts"/>
                                                             </userDefinedRuntimeAttributes>
@@ -228,7 +231,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Z8B-Ah-B7K" secondAttribute="height" multiplier="488:522" id="x1r-y2-t0I"/>
                                                             </constraints>
-                                                            <state key="normal" title="Clubs" image="Clover"/>
+                                                            <state key="normal" title="Clubs" image="Clubs"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Clubs"/>
                                                             </userDefinedRuntimeAttributes>
@@ -241,7 +244,7 @@
                                                         <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8T-hL-lJB">
                                                             <rect key="frame" x="246" y="3" width="89" height="54"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="No Trump" image="NT"/>
+                                                            <state key="normal" title="No Trump" image="No Trump"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="No Trump"/>
                                                             </userDefinedRuntimeAttributes>
@@ -353,6 +356,8 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="doubledStatusSegmentedControl" destination="ZrC-iV-QQK" id="sqX-Hk-8rK"/>
+                        <outlet property="tricksTakenSegmentedControl" destination="FN2-Gn-3ca" id="Spu-4M-7Kl"/>
                         <outletCollection property="declarerButtons" destination="4YZ-br-WgM" collectionClass="NSMutableArray" id="JFE-xX-5JD"/>
                         <outletCollection property="declarerButtons" destination="f62-4U-DGe" collectionClass="NSMutableArray" id="iOJ-Oj-Vza"/>
                         <outletCollection property="declarerButtons" destination="gjq-g6-a5h" collectionClass="NSMutableArray" id="Se3-6y-5km"/>
@@ -370,14 +375,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Clover" width="488" height="522"/>
-        <image name="Diamond" width="316" height="504"/>
+        <image name="Clubs" width="488" height="522"/>
+        <image name="Diamonds" width="316" height="504"/>
         <image name="East" width="403" height="403"/>
-        <image name="Heart" width="488" height="447"/>
-        <image name="NT" width="358" height="207"/>
+        <image name="Hearts" width="488" height="447"/>
+        <image name="No Trump" width="358" height="207"/>
         <image name="North" width="403" height="403"/>
         <image name="South" width="403" height="403"/>
         <image name="Spade" width="488" height="522"/>
+        <image name="Spades" width="488" height="522"/>
         <image name="West" width="403" height="403"/>
     </resources>
 </document>
