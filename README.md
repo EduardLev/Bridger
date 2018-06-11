@@ -1,5 +1,5 @@
 # Bridger
-A Bridge Scoring Application for iOS
+A Bridge Scoring Application for iOS - Currently In Progress
 
 # Description
 
