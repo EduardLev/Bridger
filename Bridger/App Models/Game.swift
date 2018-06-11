@@ -39,12 +39,8 @@ class Game: Codable {
         let name = try container.decode(String.self, forKey: .name)
 
         var nested = try container.nestedUnkeyedContainer(forKey: .bids)
-        print(nested)
         var bids = [Bid]()
-        do { bids = try nested.decode([Bid].self)
-        } catch let error {
-            print(error)
-        }
+        bids = try nested.decode([Bid].self)
 
         self.init(name: name, uuid: uuid, bids: bids)
     }
