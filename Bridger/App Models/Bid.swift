@@ -39,33 +39,6 @@ class Bid: NSObject, Codable {
     convenience init(tricksBid: Int, trumpSuit: Card.Suit, declarer: Player, doubled: DoubleStatus, uuid: UUID) {
         self.init(tricksBid: tricksBid, tricksWon: 0, trumpSuit: trumpSuit, success: nil, declarer: declarer, vulnerable: false, oppVulnerable: false, doubled: doubled, uuid: uuid)
     }
-
-    /*required convenience init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: BidKeys.self)
-        let tricksBid = try container.decode(Int.self, forKey: .tricksBid)
-        let tricksWon = try container.decode(Int.self, forKey: .tricksWon)
-        let trumpSuit = try container.decode(Card.Suit.self, forKey: .trumpSuit)
-        let success = try? container.decode(Bool.self, forKey: .success)
-        let declarer = try container.decode(Player.self, forKey: .declarer)
-        let vulnerable = try container.decode(Bool.self, forKey: .vulnerable)
-        let oppVulnerable = try container.decode(Bool.self, forKey: .oppVulnerable)
-        let doubled = try container.decode(DoubleStatus.self, forKey: .doubled)
-        let uuid = try container.decode(UUID.self, forKey: .uuid)
-        self.init(tricksBid: tricksBid, tricksWon: tricksWon, trumpSuit: trumpSuit, success: success, declarer: declarer, vulnerable: vulnerable, oppVulnerable: oppVulnerable, doubled: doubled, uuid: uuid)
-    }*/
-
-    /*func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: BidKeys.self)
-        try container.encode(numberOfTricksBid, forKey: .tricksBid)
-        try container.encode(numberOfTricksWon, forKey: .tricksWon)
-        try container.encode(trumpSuit, forKey: .trumpSuit)
-        try? container.encode(wasSuccessful, forKey: .success)
-        try container.encode(declarer, forKey: .declarer)
-        try container.encode(vulnerable, forKey: .vulnerable)
-        try container.encode(opponentVulnerable, forKey: .oppVulnerable)
-        try container.encode(doubled, forKey: .doubled)
-        try container.encode(uuid, forKey: .uuid)
-    }*/
 }
 
 extension Bid {
