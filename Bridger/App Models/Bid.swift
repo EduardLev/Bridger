@@ -10,19 +10,19 @@ import Foundation
 
 class Bid: NSObject, Codable {
 
-    // private(set)
     private(set) var tricksBid: Int!
     private(set) var trumpSuit: Card.Suit!
     private(set) var declarer: Player! 
     private(set) var doubled: DoubleStatus!
     private(set) var uuid: UUID!
-
-    private let tricksWon: Int?
     var wasSuccessful: Bool?
-    private let vulnerable: Bool!
+    private(set) var vulnerable: Bool!
     private let opponentVulnerable: Bool!
+    var tricksWon: Int?
 
-    enum BidKeys: CodingKey { case tricksBid, tricksWon, trumpSuit, success, declarer, vulnerable, oppVulnerable, doubled, uuid }
+    weak var parentGame: Game? = Game(name: "", uuid: UUID(), bids: [])
+
+    enum CodingKeys: CodingKey { case tricksBid, tricksWon, trumpSuit, wasSuccessful, declarer, vulnerable, opponentVulnerable, doubled, uuid }
 
     init(tricksBid: Int, tricksWon: Int?, trumpSuit: Card.Suit, success: Bool?, declarer: Player, vulnerable: Bool, oppVulnerable: Bool, doubled: DoubleStatus, uuid: UUID) {
         self.tricksBid = tricksBid
@@ -37,7 +37,12 @@ class Bid: NSObject, Codable {
     }
 
     convenience init(tricksBid: Int, trumpSuit: Card.Suit, declarer: Player, doubled: DoubleStatus, uuid: UUID) {
-        self.init(tricksBid: tricksBid, tricksWon: 0, trumpSuit: trumpSuit, success: nil, declarer: declarer, vulnerable: false, oppVulnerable: false, doubled: doubled, uuid: uuid)
+        self.init(tricksBid: tricksBid, tricksWon: nil, trumpSuit: trumpSuit, success: nil, declarer: declarer, vulnerable: false, oppVulnerable: false, doubled: doubled, uuid: uuid)
+    }
+
+    func setTricksWon(to tricksWonInput: Int) {
+        self.tricksWon = tricksWonInput
+        self.parentGame?.store?.save(self, userInfo: [Game.changeReasonKey: Game.updatedTricksTaken])
     }
 }
 

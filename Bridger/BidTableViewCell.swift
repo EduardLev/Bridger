@@ -14,6 +14,8 @@ class BidTableViewCell: UITableViewCell {
     fileprivate let bidWonLabel = UILabel()
     fileprivate let tricksLabel = UILabel()
     fileprivate let trumpImageView = UIImageView()
+    fileprivate let doubledLabel = UILabel()
+    fileprivate let vulnerableLabel = UILabel()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,51 +26,71 @@ class BidTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func prepare(declarer: String, tricks: Int, trump: String) {
+    public func prepare(declarer: String, tricks: Int, trump: String, vulnerable: Bool, doubled: Bid.DoubleStatus) {
         declarerLabel.text = declarer
         tricksLabel.text = String(tricks)
         trumpImageView.image = UIImage(named: trump)
 
+        switch doubled {
+        case .regular: doubledLabel.text = "Not Doubled"; doubledLabel.textColor = UIColor.green
+        case .doubled: doubledLabel.text = "Doubled"; doubledLabel.textColor = UIColor.red
+        case .redoubled: doubledLabel.text = "Redoubled"; doubledLabel.textColor = UIColor.red
+        }
+
+        if vulnerable {
+            vulnerableLabel.text = "Vulnerable"
+            vulnerableLabel.textColor = UIColor.red
+        } else {
+            vulnerableLabel.text = "Not Vulnerable"
+            vulnerableLabel.textColor = UIColor.green
+        }
+
+        doubledLabel.font = smallLabelFont
+        vulnerableLabel.font = smallLabelFont
+        
         declarerLabel.adjustsFontSizeToFitWidth = true
-        declarerLabel.font = labelFont
+        declarerLabel.font = largeLabelFont
         tricksLabel.adjustsFontSizeToFitWidth = true
-        tricksLabel.font = labelFont
+        tricksLabel.font = largeLabelFont
     }
 
     fileprivate func prepareViews() {
         contentView.addSubview(trumpImageView)
-        contentView.addSubview(declarerLabel)
-        contentView.addSubview(tricksLabel)
 
         trumpImageView.translatesAutoresizingMaskIntoConstraints = false
         declarerLabel.translatesAutoresizingMaskIntoConstraints = false
         tricksLabel.translatesAutoresizingMaskIntoConstraints = false
+        vulnerableLabel.translatesAutoresizingMaskIntoConstraints = false
+        doubledLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let margins = contentView.layoutMarginsGuide
+        let smallStackView = UIStackView(arrangedSubviews: [doubledLabel, vulnerableLabel])
+        smallStackView.axis = .vertical
+        smallStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(smallStackView)
 
-        declarerLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 5).isActive = true
-        declarerLabel.centerYAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
-        declarerLabel.heightAnchor.constraint(equalTo: margins.heightAnchor).isActive = true
-        declarerLabel.widthAnchor.constraint(equalTo:
-            margins.heightAnchor).isActive = true
+        let largeStackView = UIStackView(arrangedSubviews: [declarerLabel, tricksLabel])
+        largeStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(largeStackView)
+        contentView.layout(largeStackView).left(10).centerVertically()
 
-        tricksLabel.leadingAnchor.constraint(equalTo: declarerLabel.trailingAnchor, constant: -20).isActive = true
-        tricksLabel.centerYAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
-        tricksLabel.heightAnchor.constraint(equalTo: margins.heightAnchor).isActive = true
-        tricksLabel.widthAnchor.constraint(equalTo:
-            margins.heightAnchor).isActive = true
+        smallStackView.leadingAnchor.constraint(equalTo: largeStackView.trailingAnchor, constant: 10).isActive = true
+        smallStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
 
-        // TRUMP SUIT VIEW ON TRAILING EDGE
-        trumpImageView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 10).isActive = true
-        trumpImageView.centerYAnchor.constraint(equalTo:
-            margins.centerYAnchor).isActive = true
-        trumpImageView.heightAnchor.constraint(equalTo: margins.heightAnchor, constant: 0).isActive = true
-        trumpImageView.widthAnchor.constraint(equalTo: margins.heightAnchor, constant: 0).isActive = true
+        contentView.layout(trumpImageView)
+            .right(30)
+            .centerVertically()
+            .height(bounds.size.height)
+            .width(bounds.size.height)
+        trumpImageView.contentMode = .scaleAspectFill
     }
 }
 
 extension BidTableViewCell {
-    private var labelFont: UIFont {
+    private var smallLabelFont: UIFont {
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(15.0))
+    }
+
+    private var largeLabelFont: UIFont {
         return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(80.0))
     }
 }

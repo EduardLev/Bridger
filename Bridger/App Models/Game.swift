@@ -43,6 +43,10 @@ class Game: Codable {
         bids = try nested.decode([Bid].self)
 
         self.init(name: name, uuid: uuid, bids: bids)
+
+        for bid in bids {
+            bid.parentGame = self
+        }
     }
 
     func encode(to encoder: Encoder) throws {
@@ -56,7 +60,8 @@ class Game: Codable {
 
     func addNewBid(_ bid: Bid) {
         assert(bids.contains {$0 === bid} == false )
-        bids.append(bid)
+        bids.insert(bid, at: 0)
+        bid.parentGame = self
 
         let newIndex = bids.index(of: bid)!
         store?.save(bid, userInfo: [Game.changeReasonKey: Game.added,
@@ -91,4 +96,5 @@ extension Game {
     static let renamed = "renamed"
     static let added = "added"
     static let removed = "removed"
+    static let updatedTricksTaken = "updatedTricksTaken"
 }

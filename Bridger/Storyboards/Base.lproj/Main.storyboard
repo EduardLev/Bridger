@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YN-3f-Nl3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,6 +28,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Is-QB-bPC" customClass="RaisedButton" customModule="Material">
                                     <rect key="frame" x="20" y="6" width="335" height="32"/>
                                     <color key="backgroundColor" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Enter Bid">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,7 +83,6 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="N"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="North"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="touchDownButton:" destination="8YN-3f-Nl3" eventType="touchDown" id="5Du-5h-V21"/>
@@ -100,7 +102,6 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="E"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="East"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="touchDownButton:" destination="8YN-3f-Nl3" eventType="touchDown" id="qLf-Ou-wjl"/>
@@ -120,7 +121,6 @@
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="W"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="West"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="touchDownButton:" destination="8YN-3f-Nl3" eventType="touchDown" id="eDX-du-S9Y"/>
@@ -128,34 +128,37 @@
                                                         <action selector="touchUpOutsideButton:" destination="8YN-3f-Nl3" eventType="touchUpOutside" id="QHe-2F-tDg"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjq-g6-a5h">
-                                                    <rect key="frame" x="162.66666666666666" y="95" width="50" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="DzQ-3h-qM7"/>
-                                                        <constraint firstAttribute="width" constant="50" id="YBh-4s-FwO"/>
-                                                    </constraints>
-                                                    <state key="normal" title="S" image="South">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="S"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="South"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="touchDownButton:" destination="8YN-3f-Nl3" eventType="touchDown" id="bX1-PO-Rxz"/>
-                                                        <action selector="touchUpInsideButton:" destination="8YN-3f-Nl3" eventType="touchUpInside" id="EQN-zi-eh7"/>
-                                                        <action selector="touchUpOutsideButton:" destination="8YN-3f-Nl3" eventType="touchUpOutside" id="P3N-qb-E42"/>
-                                                    </connections>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="N5H-ti-1Ks">
+                                                    <rect key="frame" x="163" y="95" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjq-g6-a5h">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="DzQ-3h-qM7"/>
+                                                                <constraint firstAttribute="width" constant="50" id="YBh-4s-FwO"/>
+                                                            </constraints>
+                                                            <state key="normal" title="S" image="South">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="S"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="touchDownButton:" destination="8YN-3f-Nl3" eventType="touchDown" id="bX1-PO-Rxz"/>
+                                                                <action selector="touchUpInsideButton:" destination="8YN-3f-Nl3" eventType="touchUpInside" id="EQN-zi-eh7"/>
+                                                                <action selector="touchUpOutsideButton:" destination="8YN-3f-Nl3" eventType="touchUpOutside" id="P3N-qb-E42"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="f62-4U-DGe" firstAttribute="centerX" secondItem="9vd-gb-Cae" secondAttribute="centerX" id="3tp-42-Q6m"/>
                                                 <constraint firstItem="hx3-EL-8eu" firstAttribute="centerY" secondItem="9vd-gb-Cae" secondAttribute="centerY" id="Dgv-QZ-GTR"/>
-                                                <constraint firstItem="gjq-g6-a5h" firstAttribute="centerX" secondItem="9vd-gb-Cae" secondAttribute="centerX" id="PkA-eY-C27"/>
                                                 <constraint firstItem="f62-4U-DGe" firstAttribute="leading" secondItem="hx3-EL-8eu" secondAttribute="trailing" constant="8" symbolic="YES" id="ST1-z3-A2D"/>
-                                                <constraint firstItem="gjq-g6-a5h" firstAttribute="top" secondItem="f62-4U-DGe" secondAttribute="bottom" constant="40" id="bRM-Hr-vJL"/>
                                                 <constraint firstItem="4YZ-br-WgM" firstAttribute="centerY" secondItem="9vd-gb-Cae" secondAttribute="centerY" id="paF-Tj-lGT"/>
                                                 <constraint firstItem="f62-4U-DGe" firstAttribute="top" secondItem="9vd-gb-Cae" secondAttribute="top" constant="5" id="v1f-Jj-Sr9"/>
                                                 <constraint firstItem="4YZ-br-WgM" firstAttribute="leading" secondItem="f62-4U-DGe" secondAttribute="trailing" constant="8" symbolic="YES" id="zWl-KE-lxc"/>
@@ -360,18 +363,387 @@
                         <outlet property="tricksTakenSegmentedControl" destination="FN2-Gn-3ca" id="Spu-4M-7Kl"/>
                         <outletCollection property="declarerButtons" destination="4YZ-br-WgM" collectionClass="NSMutableArray" id="JFE-xX-5JD"/>
                         <outletCollection property="declarerButtons" destination="f62-4U-DGe" collectionClass="NSMutableArray" id="iOJ-Oj-Vza"/>
-                        <outletCollection property="declarerButtons" destination="gjq-g6-a5h" collectionClass="NSMutableArray" id="Se3-6y-5km"/>
                         <outletCollection property="declarerButtons" destination="hx3-EL-8eu" collectionClass="NSMutableArray" id="Fw6-d4-Bmz"/>
                         <outletCollection property="trumpButtons" destination="Tab-y5-ft1" collectionClass="NSMutableArray" id="kr4-Bj-jqc"/>
                         <outletCollection property="trumpButtons" destination="GM7-VH-dHK" collectionClass="NSMutableArray" id="E3a-a9-hy6"/>
                         <outletCollection property="trumpButtons" destination="rsb-3R-qvq" collectionClass="NSMutableArray" id="ILv-Mt-any"/>
                         <outletCollection property="trumpButtons" destination="Z8B-Ah-B7K" collectionClass="NSMutableArray" id="jMb-D4-sg5"/>
                         <outletCollection property="trumpButtons" destination="I8T-hL-lJB" collectionClass="NSMutableArray" id="VlE-sS-WGv"/>
+                        <outletCollection property="declarerButtons" destination="gjq-g6-a5h" collectionClass="NSMutableArray" id="Se3-6y-5km"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKz-ys-tYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-268" y="169.56521739130437"/>
+        </scene>
+        <!--updateBidViewController-->
+        <scene sceneID="KoW-cF-VVP">
+            <objects>
+                <viewController storyboardIdentifier="updateBidViewController" title="updateBidViewController" id="vr1-pi-wEL" customClass="UpdateBidViewController" customModule="Bridger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dvU-4h-qLc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-wl-GK4">
+                                <rect key="frame" x="10" y="250.33333333333337" width="355" height="312"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XK9-mU-5bQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sI-2T-RM8" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                                        <color key="value" red="0.0" green="1" blue="0.43591099560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="tKz-lt-lnA"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchDown" id="ety-vt-MU8"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpOutside" id="eiW-O8-ksS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-sj-47i" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="90.666666666666686" y="0.0" width="83" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="MhP-0J-pxq"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="AUj-vQ-kC8"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="2ly-jj-jsJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-9g-uNb" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="181.66666666666666" y="0.0" width="82.666666666666657" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="i6G-t9-rSd"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="7d6-rL-sRN"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="FtU-KO-exV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-3t-x3q" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="272.33333333333331" y="0.0" width="82.666666666666686" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="m25-0T-jlh"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="3v3-HT-GAt"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="FkH-Jp-FDG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-Yg-h9K">
+                                        <rect key="frame" x="0.0" y="79.999999999999972" width="355" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbO-oP-HZo" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="Hv0-jM-b7Z"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="bCM-Nh-Yi0"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="Mr1-ow-zBl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnR-6M-IRn" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="90.666666666666686" y="0.0" width="83" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="5Gb-Y9-fIX"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="RMh-ZL-ESh"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="mxZ-7K-Aia"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVQ-Ij-QfJ" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="181.66666666666666" y="0.0" width="82.666666666666657" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="Uy1-hS-O0J"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="4Pu-T8-YbA"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="EGI-mH-x8j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJn-2d-dJC" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="272.33333333333331" y="0.0" width="82.666666666666686" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="IXd-wf-ugL"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="oz3-9T-2el"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="GP2-RD-3Tw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yj1-Nk-s89">
+                                        <rect key="frame" x="0.0" y="159.99999999999997" width="355" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrZ-0s-gdd" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="0.0" y="0.0" width="82.666666666666671" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="2uO-Zq-1RD"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="5Oi-hw-nwm"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="dBI-vF-L33"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXX-84-Zru" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="90.666666666666686" y="0.0" width="83" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="10">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="yv3-Ex-PPH"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="aBI-vM-INP"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="N52-ck-hn5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObZ-6j-7Im" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="181.66666666666666" y="0.0" width="82.666666666666657" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="11">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="GKJ-WT-wFq"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="1bW-7O-r1n"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="4kZ-p6-FSO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-Tq-oAr" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="272.33333333333331" y="0.0" width="82.666666666666686" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="12">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="YJJ-XB-g0H"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="zsA-lG-bz9"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="aUj-Yd-HIc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="87v-bz-cLy">
+                                        <rect key="frame" x="0.0" y="240" width="355" height="72"/>
+                                        <subviews>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-v4-gYL" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="0.0" y="0.0" width="173.66666666666666" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="13">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="avs-it-AIk"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="o9S-BA-dVd"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="Il5-Fv-dej"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-ws-KPU" customClass="RaisedButton" customModule="Material">
+                                                <rect key="frame" x="181.66666666666663" y="0.0" width="173.33333333333337" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="14">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didSelectTricksTaken:" destination="vr1-pi-wEL" eventType="touchUpInside" id="rCg-Xb-rDi"/>
+                                                    <action selector="didTouchDownButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="I07-Sg-afE"/>
+                                                    <action selector="didTouchUpOutsideTricksTakenButton:" destination="vr1-pi-wEL" eventType="touchUpInside" id="UHa-id-OhD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="87v-bz-cLy" secondAttribute="trailing" id="1jv-Kt-Pmj"/>
+                                    <constraint firstItem="87v-bz-cLy" firstAttribute="leading" secondItem="UhD-wl-GK4" secondAttribute="leading" id="Lwl-s8-NQU"/>
+                                    <constraint firstItem="Yj1-Nk-s89" firstAttribute="leading" secondItem="UhD-wl-GK4" secondAttribute="leading" id="PEZ-QD-jej"/>
+                                    <constraint firstItem="XK9-mU-5bQ" firstAttribute="leading" secondItem="UhD-wl-GK4" secondAttribute="leading" id="Sp2-f9-gZP"/>
+                                    <constraint firstItem="3YP-Yg-h9K" firstAttribute="leading" secondItem="UhD-wl-GK4" secondAttribute="leading" id="jxj-uv-C4t"/>
+                                    <constraint firstAttribute="trailing" secondItem="3YP-Yg-h9K" secondAttribute="trailing" id="rWb-QE-yLk"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yj1-Nk-s89" secondAttribute="trailing" id="s2Y-zg-Iov"/>
+                                    <constraint firstAttribute="trailing" secondItem="XK9-mU-5bQ" secondAttribute="trailing" id="sFM-uP-SVi"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tricks won by declarer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYU-Mv-M6J">
+                                <rect key="frame" x="60.333333333333329" y="199" width="254.33333333333337" height="31.333333333333343"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXd-xL-eEm" customClass="RaisedButton" customModule="Material">
+                                <rect key="frame" x="20" y="715" width="335" height="33"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Enter Tricks">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Enter Tricks"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.12549019610000001" green="0.50599277470000004" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="enterBidDidTouchUpInside:" destination="8YN-3f-Nl3" eventType="touchUpInside" id="PVf-6u-RBT"/>
+                                    <action selector="inputTricksDidTouchUpInside:" destination="vr1-pi-wEL" eventType="touchUpInside" id="UKQ-Ql-VqN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VXd-xL-eEm" firstAttribute="leading" secondItem="R8A-PB-JGv" secondAttribute="leading" constant="20" id="DJh-lH-cnV"/>
+                            <constraint firstItem="UhD-wl-GK4" firstAttribute="centerY" secondItem="dvU-4h-qLc" secondAttribute="centerY" id="Np2-0q-6ra"/>
+                            <constraint firstItem="R8A-PB-JGv" firstAttribute="trailing" secondItem="UhD-wl-GK4" secondAttribute="trailing" constant="10" id="OmS-yo-v1r"/>
+                            <constraint firstItem="VXd-xL-eEm" firstAttribute="centerX" secondItem="dvU-4h-qLc" secondAttribute="centerX" id="Ws9-F4-DmV"/>
+                            <constraint firstItem="VXd-xL-eEm" firstAttribute="bottom" secondItem="R8A-PB-JGv" secondAttribute="bottom" constant="-30" id="a5V-9i-6WN"/>
+                            <constraint firstItem="UhD-wl-GK4" firstAttribute="leading" secondItem="R8A-PB-JGv" secondAttribute="leading" constant="10" id="eZO-L7-szD"/>
+                            <constraint firstItem="R8A-PB-JGv" firstAttribute="trailing" secondItem="VXd-xL-eEm" secondAttribute="trailing" constant="20" id="m36-UP-3ME"/>
+                            <constraint firstItem="qYU-Mv-M6J" firstAttribute="centerX" secondItem="dvU-4h-qLc" secondAttribute="centerX" id="s36-WY-eGZ"/>
+                            <constraint firstItem="UhD-wl-GK4" firstAttribute="top" secondItem="qYU-Mv-M6J" secondAttribute="bottom" constant="20" id="vbv-tF-LfJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R8A-PB-JGv"/>
+                    </view>
+                    <connections>
+                        <outlet property="completeInputButton" destination="VXd-xL-eEm" id="8A5-nb-u9Y"/>
+                        <outletCollection property="tricksTakenCollection" destination="4sI-2T-RM8" collectionClass="NSMutableArray" id="Pc7-zY-R4I"/>
+                        <outletCollection property="tricksTakenCollection" destination="Qy8-sj-47i" collectionClass="NSMutableArray" id="VUe-24-95g"/>
+                        <outletCollection property="tricksTakenCollection" destination="N4J-9g-uNb" collectionClass="NSMutableArray" id="ZBf-9p-t0A"/>
+                        <outletCollection property="tricksTakenCollection" destination="F6v-3t-x3q" collectionClass="NSMutableArray" id="tDt-k4-HoF"/>
+                        <outletCollection property="tricksTakenCollection" destination="CbO-oP-HZo" collectionClass="NSMutableArray" id="IhR-DE-aoG"/>
+                        <outletCollection property="tricksTakenCollection" destination="HnR-6M-IRn" collectionClass="NSMutableArray" id="nLd-zh-PqM"/>
+                        <outletCollection property="tricksTakenCollection" destination="BVQ-Ij-QfJ" collectionClass="NSMutableArray" id="pO7-hB-Db8"/>
+                        <outletCollection property="tricksTakenCollection" destination="XJn-2d-dJC" collectionClass="NSMutableArray" id="okA-ee-eVm"/>
+                        <outletCollection property="tricksTakenCollection" destination="mrZ-0s-gdd" collectionClass="NSMutableArray" id="TFB-xJ-owQ"/>
+                        <outletCollection property="tricksTakenCollection" destination="XXX-84-Zru" collectionClass="NSMutableArray" id="ati-IR-STh"/>
+                        <outletCollection property="tricksTakenCollection" destination="ObZ-6j-7Im" collectionClass="NSMutableArray" id="Hub-Mk-9rD"/>
+                        <outletCollection property="tricksTakenCollection" destination="oUy-Tq-oAr" collectionClass="NSMutableArray" id="GHg-c3-lMg"/>
+                        <outletCollection property="tricksTakenCollection" destination="Rpz-v4-gYL" collectionClass="NSMutableArray" id="9x7-Vc-nfE"/>
+                        <outletCollection property="tricksTakenCollection" destination="5tO-ws-KPU" collectionClass="NSMutableArray" id="qcp-6s-5Ca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P9B-6g-vFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="523" y="171"/>
         </scene>
     </scenes>
     <resources>

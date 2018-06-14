@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */; };
+		D431316A20D0179F000C5F73 /* UpdateBidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431316920D0179F000C5F73 /* UpdateBidViewController.swift */; };
 		D433509620B337F400FCB874 /* BidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433509520B337F400FCB874 /* BidTableViewCell.swift */; };
 		D446CADB2091131000A43288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAD92091131000A43288 /* Main.storyboard */; };
 		D446CADE2091131000A43288 /* Bridger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D446CADC2091131000A43288 /* Bridger.xcdatamodeld */; };
@@ -33,6 +34,7 @@
 		0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.release.xcconfig"; sourceTree = "<group>"; };
 		482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.debug.xcconfig"; sourceTree = "<group>"; };
 		A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bridger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D431316920D0179F000C5F73 /* UpdateBidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBidViewController.swift; sourceTree = "<group>"; };
 		D433509520B337F400FCB874 /* BidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidTableViewCell.swift; sourceTree = "<group>"; };
 		D446CAD22091131000A43288 /* Bridger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bridger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D446CADA2091131000A43288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */,
 				D433509520B337F400FCB874 /* BidTableViewCell.swift */,
 				D446CAF82091139500A43288 /* GameViewController.swift */,
+				D431316920D0179F000C5F73 /* UpdateBidViewController.swift */,
 				D49825DA20C58FBD005CE16E /* Utilities */,
 				D446CAF52091138A00A43288 /* Wrapper Controllers */,
 				D446CB07209113AD00A43288 /* App Models */,
@@ -287,6 +290,7 @@
 				D446CB04209113A800A43288 /* Player.swift in Sources */,
 				D446CAFA2091139500A43288 /* BidsViewController.swift in Sources */,
 				D446CAFC2091139500A43288 /* GameViewController.swift in Sources */,
+				D431316A20D0179F000C5F73 /* UpdateBidViewController.swift in Sources */,
 				D446CAF32091138500A43288 /* AppTabsController.swift in Sources */,
 				D446CB06209113A800A43288 /* Card.swift in Sources */,
 				D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */,

@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window!.rootViewController = toolbarController
         //window!.rootViewController = AppTabsController(viewControllers: [GameViewController(), BidsViewController()])
-        window!.makeKeyAndVisible()
+        window!.makeKeyAndVisible() 
         return true
     }
 

@@ -15,16 +15,9 @@ class InputBidTableViewController: UITableViewController {
     public var game = Store.shared.rootGame
     fileprivate let animator = Animator()
 
-    /// View outlet for the N/E/W/S buttons which determine
-    /// the declarer for this particular bid.
-    /// Buttons will be circles since the cornerRadius is 1/2 of the width of the button
-    @IBOutlet var declarerButtons: [UIButton]! {
-        didSet {
-            for button in declarerButtons {
-                button.layer.cornerRadius = button.frame.size.width/2
-            }
-        }
-    }
+    /// View outlet for the N/E/W/S buttons which determine declarer
+    @IBOutlet var declarerButtons: [UIButton]!
+
     /// View outlet for the Trump suit buttons
     @IBOutlet var trumpButtons: [UIButton]!
 
@@ -104,7 +97,7 @@ class InputBidTableViewController: UITableViewController {
         guard tricks != -1 else { self.showInvalidBidAlert(ofType: .tricks); return }
 
         let bid = Bid(tricksBid: tricks, trumpSuit: trumpSuit!, declarer: declarer!, doubled: doubledStatus, uuid: UUID())
-        game.addNewBid(bid)
+        game.addNewBid(bid) // update model
 
         self.dismiss(animated: true, completion: nil)
     }

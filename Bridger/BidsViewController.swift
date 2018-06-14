@@ -26,6 +26,13 @@ class BidsViewController: UIViewController {
         }
     }
 
+    var selectedBid: Bid? {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            return game.bids[indexPath.row]
+        }
+        return nil
+    }
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.white
@@ -39,6 +46,10 @@ class BidsViewController: UIViewController {
         tableView.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(handleChangeNotification(_:)), name: Store.changedNotification, object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     @objc func handleChangeNotification(_ notification: Notification) {
@@ -65,7 +76,7 @@ extension BidsViewController {
     fileprivate func prepareTableView() {
         tableView = UITableView()
         tableView.frame = view.bounds
-        tableView.register(BidTableViewCell.self, forCellReuseIdentifier: bidCellReuseIdentifier)
+        tableView.register(BidTableViewCell.self, forCellReuseIdentifier: BidsViewController.updateBidViewController)
         view.addSubview(tableView)
         view.layout(tableView).bottom().top().left().right()
     }
@@ -126,6 +137,14 @@ extension BidsViewController {
         view.addSubview(stackView)
         view.layout(stackView).center()
     }
+
+    fileprivate func pushUpdateBidViewController() {
+        guard let selectedBid = selectedBid else { return }
+        if let updateBidViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "updateBidViewController") as? UpdateBidViewController {
+            updateBidViewController.bid = selectedBid
+            self.present(updateBidViewController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -148,8 +167,8 @@ extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bid = game.bids[indexPath.row] // gets the bid from the model
-        let cell = tableView.dequeueReusableCell(withIdentifier: bidCellReuseIdentifier, for: indexPath) as! BidTableViewCell
-        cell.prepare(declarer: bid.declarer.rawValue, tricks: bid.tricksBid, trump: bid.trumpSuit.rawValue)
+        let cell = tableView.dequeueReusableCell(withIdentifier: BidsViewController.updateBidViewController, for: indexPath) as! BidTableViewCell
+        cell.prepare(declarer: bid.declarer.rawValue, tricks: bid.tricksBid, trump: bid.trumpSuit.rawValue, vulnerable: bid.vulnerable, doubled: bid.doubled)
         return cell
     }
 
@@ -163,6 +182,11 @@ extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         game.removeBid(game.bids[indexPath.row])
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushUpdateBidViewController()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -183,8 +207,7 @@ extension BidsViewController {
         return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(24.0))
     }
 
-    private var bidCellReuseIdentifier: String {
-        return "Bid Cell"
-    }
+    private static let bidCellReuseIdentifier = "Bid Cell"
+    private static let updateBidViewController = "UpdateBidViewController"
 }
 

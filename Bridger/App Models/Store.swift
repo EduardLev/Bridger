@@ -41,7 +41,6 @@ final class Store {
         // Send a notification to all registered observers that the store has changed. Users should update accordingly.
         NotificationCenter.default.post(name: Store.changedNotification, object: notifying, userInfo: userInfo)
     }
-
 }
 
 extension Store {
