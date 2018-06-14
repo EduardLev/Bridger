@@ -26,7 +26,7 @@ public struct Card {
 
         static var all = [Suit.spades, .hearts, .diamonds, .clubs, .notrump]
         static var allRawValues =
-            Suit.all.map() { $0.rawValue } 
+            Suit.all.map { $0.rawValue } 
     }
 
     enum Rank: CustomStringConvertible {

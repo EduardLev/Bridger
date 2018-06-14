@@ -103,25 +103,21 @@ class InputBidTableViewController: UITableViewController {
     }
 
     fileprivate func getSelectedDeclarer() -> Player? {
-        for button in declarerButtons {
-            if button.isSelected {
-                if let buttonStringSelected = button.titleLabel?.text {
-                    let playerSelected = Player(rawValue: buttonStringSelected)
-                    return playerSelected
-                }
+        for button in declarerButtons where button.isSelected {
+            if let buttonStringSelected = button.titleLabel?.text {
+                let playerSelected = Player(rawValue: buttonStringSelected)
+                return playerSelected
             }
-        }
+            }
         // No button selected
         return nil
     }
 
     fileprivate func getSelectedTrump() -> Card.Suit? {
-        for button in trumpButtons {
-            if button.isSelected {
-                if let buttonStringSelected = button.titleLabel?.text {
-                    let trumpSelected = Card.Suit(rawValue: buttonStringSelected)
-                    return trumpSelected
-                }
+        for button in trumpButtons where button.isSelected {
+            if let buttonStringSelected = button.titleLabel?.text {
+                let trumpSelected = Card.Suit(rawValue: buttonStringSelected)
+                return trumpSelected
             }
         }
         // No button selected
@@ -129,7 +125,7 @@ class InputBidTableViewController: UITableViewController {
     }
 
     fileprivate func getSelectedTricks() -> Int {
-        return tricksTakenSegmentedControl.selectedSegmentIndex
+        return tricksTakenSegmentedControl.selectedSegmentIndex + 1
     }
 
     fileprivate func getSelectedDoubledStatus() -> Bid.DoubleStatus {

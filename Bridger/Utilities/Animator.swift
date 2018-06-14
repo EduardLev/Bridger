@@ -41,7 +41,7 @@ public func animateSpringBackUp(_ sender: UIButton) {
                    animations: {
                     sender.transform = CGAffineTransform.identity
                     sender.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-    }, completion: { success in UIView.animate(withDuration: 0.1,
+    }, completion: { _ in UIView.animate(withDuration: 0.1,
                                                delay: 0,
                                                options: .curveEaseInOut,
                                                animations: {

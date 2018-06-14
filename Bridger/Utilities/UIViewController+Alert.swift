@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    
+
     /// Shows an alert popup with an invalid bid message.
     func showInvalidBidAlert(ofType type: Bid.InvalidBidType) {
         let invalidString = """

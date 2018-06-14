@@ -7,5 +7,6 @@ target 'Bridger' do
 
   # Pods for Bridger
 pod 'Material'
+pod 'SwiftLint'
 
 end

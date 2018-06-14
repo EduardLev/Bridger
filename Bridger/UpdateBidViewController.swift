@@ -56,7 +56,7 @@ class UpdateBidViewController: UIViewController {
     }
 
     fileprivate func enableCompleteInputButton() {
-        if let _ = selectedButton {
+        if selectedButton != nil {
             completeInputButton.isUserInteractionEnabled = true
             completeInputButton.alpha = 1
         }

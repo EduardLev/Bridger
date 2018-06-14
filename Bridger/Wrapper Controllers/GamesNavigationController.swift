@@ -15,12 +15,12 @@ class GamesNavigationController: NavigationController {
         super.prepare()
         isMotionEnabled = true
 
-        guard let v = navigationBar as? NavigationBar else {
+        guard let navigationBar = navigationBar as? NavigationBar else {
             return
         }
 
-        v.depthPreset = .none
-        v.dividerColor = Color.grey.lighten2
+        navigationBar.depthPreset = .none
+        navigationBar.dividerColor = Color.grey.lighten2
     }
 
 }

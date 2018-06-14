@@ -47,7 +47,7 @@ class BidTableViewCell: UITableViewCell {
 
         doubledLabel.font = smallLabelFont
         vulnerableLabel.font = smallLabelFont
-        
+
         declarerLabel.adjustsFontSizeToFitWidth = true
         declarerLabel.font = largeLabelFont
         tricksLabel.adjustsFontSizeToFitWidth = true
@@ -87,10 +87,10 @@ class BidTableViewCell: UITableViewCell {
 
 extension BidTableViewCell {
     private var smallLabelFont: UIFont {
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(15.0))
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(15))
     }
 
     private var largeLabelFont: UIFont {
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(80.0))
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(80))
     }
 }

@@ -20,13 +20,15 @@ final class Store {
     init(url: URL?) {
         self.baseURL = url
 
-        if let u = url,
+        if let url = url,
             let data = try? Data(contentsOf:
-                u.appendingPathComponent(.storeLocation)),
+                url.appendingPathComponent(.storeLocation)),
             let game = try? JSONDecoder().decode(Game.self, from: data) {
             self.rootGame = game
         } else {
-            self.rootGame = Game(name: "", uuid: UUID(), bids: [])
+            self.rootGame = Game(name: "", uuid: UUID(), bids: [],
+                                 weOverScore: [], weUnderScore: [:],
+                                 theyOverScore: [], theyUnderScore: [:])
         }
 
         self.rootGame.store = self
@@ -34,7 +36,7 @@ final class Store {
 
     func save(_ notifying: Bid, userInfo: [AnyHashable: Any]) {
         if let url = baseURL, let data = try? JSONEncoder().encode(rootGame) {
-            try! data.write(to: url.appendingPathComponent(.storeLocation))
+            try? data.write(to: url.appendingPathComponent(.storeLocation))
             // error handling ommitted
         }
 
@@ -48,7 +50,7 @@ extension Store {
     static let changedNotification = Notification.Name("StoreChanged")
 
     // Simple reference to the document directory
-    static private let documentDirectory = try!
+    static private let documentDirectory = try?
         FileManager.default.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 }
 

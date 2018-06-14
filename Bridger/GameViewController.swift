@@ -46,6 +46,6 @@ extension GameViewController {
     }
 
     fileprivate func prepareNewBidButton() {
-        
+
     }
 }

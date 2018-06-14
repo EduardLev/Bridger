@@ -112,7 +112,7 @@ extension BidsViewController {
     fileprivate func prepareEmptyInstructionsLabel() {
         emptyInstructionsLabel = UILabel()
         emptyInstructionsLabel.textColor = Color.green.darken2
-        emptyInstructionsLabel.text = "To add a bid to this game, press the '+' button on the top right bar."
+        emptyInstructionsLabel.text = "To add a bid to this game, press the '+' button on the top right."
         emptyInstructionsLabel.font = font
         emptyInstructionsLabel.numberOfLines = 2
         //emptyInstructionsLabel.lineBreakMode = .byWordWrapping
@@ -166,8 +166,8 @@ extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let bid = game.bids[indexPath.row] // gets the bid from the model
-        let cell = tableView.dequeueReusableCell(withIdentifier: BidsViewController.updateBidViewController, for: indexPath) as! BidTableViewCell
+        let bid = game.bids[indexPath.row] // gets the bid from the modelcell.prepare(
+        let cell = tableView.dequeueReusableCell(withIdentifier: BidsViewController.updateBidViewController, for: indexPath) as! BidTableViewCell // swiftlint:disable:this force_cast
         cell.prepare(declarer: bid.declarer.rawValue, tricks: bid.tricksBid, trump: bid.trumpSuit.rawValue, vulnerable: bid.vulnerable, doubled: bid.doubled)
         return cell
     }
