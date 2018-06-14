@@ -210,4 +210,3 @@ extension BidsViewController {
     private static let bidCellReuseIdentifier = "Bid Cell"
     private static let updateBidViewController = "UpdateBidViewController"
 }
-

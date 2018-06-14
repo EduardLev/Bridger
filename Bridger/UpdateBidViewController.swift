@@ -24,7 +24,7 @@ class UpdateBidViewController: UIViewController {
     }
 
     var selectedButton: RaisedButton? {
-        return tricksTakenCollection.filter( {$0.isSelected} ).first
+        return tricksTakenCollection.filter({$0.isSelected}).first
     }
 
     // touch up Inside
