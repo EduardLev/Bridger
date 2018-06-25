@@ -167,8 +167,22 @@ extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let bid = game.bids[indexPath.row] // gets the bid from the modelcell.prepare(
-        let cell = tableView.dequeueReusableCell(withIdentifier: BidsViewController.updateBidViewController, for: indexPath) as! BidTableViewCell // swiftlint:disable:this force_cast
-        cell.prepare(declarer: bid.declarer.rawValue, tricks: bid.tricksBid, trump: bid.trumpSuit.rawValue, vulnerable: bid.vulnerable, doubled: bid.doubled)
+        let cell = tableView
+            .dequeueReusableCell(withIdentifier: BidsViewController.updateBidViewController,
+                                 for: indexPath) as! BidTableViewCell // swiftlint:disable:this force_cast
+
+        let vulnerable: Bool
+        if bid.declarer == .east || bid.declarer == .west {
+            vulnerable = bid.weVulnerable
+        } else {
+            vulnerable = bid.theyVulnerable
+        }
+        cell.prepare(declarer: bid.declarer.rawValue,
+                     tricks: bid.tricksBid,
+                     trump: bid.trumpSuit.rawValue,
+                     vulnerable: vulnerable,
+                     doubled: bid.doubled,
+                     tricksWon: bid.tricksWon)
         return cell
     }
 

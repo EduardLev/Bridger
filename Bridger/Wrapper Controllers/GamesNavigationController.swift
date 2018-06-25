@@ -22,5 +22,4 @@ class GamesNavigationController: NavigationController {
         navigationBar.depthPreset = .none
         navigationBar.dividerColor = Color.grey.lighten2
     }
-
 }

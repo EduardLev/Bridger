@@ -19,7 +19,7 @@ class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
 
-        // Sets the tab bar selection line to green color
+        // Sets the tab bar selection line to green
         tabBar.setLineColor(Color.green.base, for: .selected)
 
         // Sets the normal/selected/highlighted colors of the tab bar items.

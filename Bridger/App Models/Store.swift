@@ -2,46 +2,61 @@
 //  Store.swift
 //  Bridger
 //
+//  Stores the location of the documents directory, as well as provides functions
+//  for saving, initializing, and sending notifications regarding changes in a Game.
 //  Created by Eduard Lev on 6/4/18.
 //  Copyright © 2018 Eduard Levshteyn. All rights reserved.
 //
 
 import Foundation
 
-// Class that represents the saved game
+/// Allows access to the saved games through the documents directory.
 final class Store {
 
-    // Singleton instance for the app. Linked to documents directory
+    /// Singleton instance for the app. Linked to documents directory.
+    /// - note: Access throughout the app using Store.shared
     static let shared = Store(url: documentDirectory)
 
+    // This is set on initialization. If nil, it means the file was not yet created.
     let baseURL: URL?
-    private(set) var rootGame: Game // the game fetched by the store
+
+    // The base game connected to this store.
+    private(set) var rootGame: Game
 
     init(url: URL?) {
         self.baseURL = url
 
         if let url = url,
             let data = try? Data(contentsOf:
-                url.appendingPathComponent(.storeLocation)),
+                url.appendingPathComponent(.storeFilename)),
             let game = try? JSONDecoder().decode(Game.self, from: data) {
             self.rootGame = game
         } else {
-            self.rootGame = Game(name: "", uuid: UUID(), bids: [],
-                                 weOverScore: [], weUnderScore: [:],
-                                 theyOverScore: [], theyUnderScore: [:])
+            // Create new, blank game
+            // Allow user to set the name (todo)
+            self.rootGame = Game(name: "", uuid: UUID())
         }
 
         self.rootGame.store = self
     }
 
-    func save(_ notifying: Bid, userInfo: [AnyHashable: Any]) {
+    /// Saves the root game associated with this store object to the documents directory.
+    /// Also posts a notification to observers about how the game changed, so they can
+    /// react as necessary.
+    ///
+    /// - Parameters:
+    ///   - notifying: The Bid object that was changed (added / removed / updated)
+    ///   - userInfo: A Dictionary object that contains information about the change.
+    func save(object: Bid, userInfo: [String: Any]) throws {
         if let url = baseURL, let data = try? JSONEncoder().encode(rootGame) {
-            try? data.write(to: url.appendingPathComponent(.storeLocation))
-            // error handling ommitted
+            do {
+                try data.write(to: url.appendingPathComponent(.storeFilename))
+            } catch let error { throw error }
         }
 
-        // Send a notification to all registered observers that the store has changed. Users should update accordingly.
-        NotificationCenter.default.post(name: Store.changedNotification, object: notifying, userInfo: userInfo)
+        NotificationCenter.default.post(name: Store.changedNotification,
+                                        object: object,
+                                        userInfo: userInfo)
     }
 }
 
@@ -55,6 +70,5 @@ extension Store {
 }
 
 fileprivate extension String {
-    // Filename for the saved store
-    static let storeLocation = "store.json"
+    static let storeFilename = "store.json"
 }

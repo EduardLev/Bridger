@@ -25,6 +25,19 @@ class InputBidTableViewController: UITableViewController {
     @IBOutlet weak var tricksTakenSegmentedControl: UISegmentedControl!
     @IBOutlet weak var doubledStatusSegmentedControl: UISegmentedControl!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // This view should not make itself visible if the Game's last Bid object has not yet been scored.
+        if game.bids.count != 0 {
+            if game.bids[0].wasSuccessful == nil {
+                self.dismiss(animated: true, completion: nil)
+                self.showAlert(withMessage: "Wait! I can't enter a new Bid until the previous Bid has been scored.",
+                               title: "Incomplete Bid!",
+                               returnTitle: "Go Back")
+            }
+        }
+    }
+
     // MARK: - Target Action
 
     /** Links all buttons 'touch Down' event to a "press down" animation. */
@@ -96,7 +109,7 @@ class InputBidTableViewController: UITableViewController {
         guard trumpSuit != nil else { self.showInvalidBidAlert(ofType: .trumpSuit); return }
         guard tricks != -1 else { self.showInvalidBidAlert(ofType: .tricks); return }
 
-        let bid = Bid(tricksBid: tricks, trumpSuit: trumpSuit!, declarer: declarer!, doubled: doubledStatus, uuid: UUID())
+        let bid = Bid(tricksBid: tricks, trumpSuit: trumpSuit!, declarer: declarer!, doubled: doubledStatus)
         game.addNewBid(bid) // update model
 
         self.dismiss(animated: true, completion: nil)
@@ -125,7 +138,8 @@ class InputBidTableViewController: UITableViewController {
     }
 
     fileprivate func getSelectedTricks() -> Int {
-        return tricksTakenSegmentedControl.selectedSegmentIndex + 1
+        // explain why 6
+        return tricksTakenSegmentedControl.selectedSegmentIndex + 1 + 6
     }
 
     fileprivate func getSelectedDoubledStatus() -> Bid.DoubleStatus {
