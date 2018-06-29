@@ -28,6 +28,7 @@ class AppTabsController: TabsController {
         tabBar.setTabItemsColor(Color.blue.base, for: .highlighted)
 
         tabBar.tabBarStyle = .auto
-        tabBar.lineAlignment = .top
+        tabBar.lineAlignment = .bottom
+        tabBar.lineHeight = 5
     }
 }

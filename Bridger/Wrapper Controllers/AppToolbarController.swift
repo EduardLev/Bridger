@@ -43,19 +43,24 @@ extension AppToolbarController {
     }
 
     fileprivate func prepareToolbar() {
+        prepareTitle()
+        prepareSubTitle()
         toolbar.depthPreset = .depth2
         toolbar.backgroundColor = Color.green.base
-
-        toolbar.title = "Bridger"
-        toolbar.titleLabel.textColor = .white
-        toolbar.titleLabel.textAlignment = .center
-
-        toolbar.detailLabel.textColor = .white
-        toolbar.detailLabel.textAlignment = .center
-        toolbar.detailLabel.text = "Rubber Bridge Scoring"
-
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [addButton]
+    }
+
+    fileprivate func prepareTitle() {
+        toolbar.title = .title
+        toolbar.titleLabel.textColor = .white
+        toolbar.titleLabel.textAlignment = .center
+    }
+
+    fileprivate func prepareSubTitle() {
+        toolbar.detailLabel.text = .detailTitle
+        toolbar.detailLabel.textColor = .white
+        toolbar.detailLabel.textAlignment = .center
     }
 }
 
@@ -77,4 +82,9 @@ fileprivate extension AppToolbarController {
 fileprivate extension AppToolbarController {
     static let addButtonTapped = #selector(addNewBid)
     static let inputBidVCIdentifier = "InputBid"
+}
+
+fileprivate extension String {
+    static let detailTitle = NSLocalizedString("Rubber Bridge Scoring", comment: "Subheading for the Game view.")
+    static let title = NSLocalizedString("Bridger", comment: "The name of the app, displayed as the title.")
 }

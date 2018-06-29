@@ -23,6 +23,7 @@ final class Store {
     // The base game connected to this store.
     private(set) var rootGame: Game
 
+    // URL for dependency injection, for testing purposes.
     init(url: URL?) {
         self.baseURL = url
 

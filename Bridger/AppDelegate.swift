@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let toolbarController = AppToolbarController(rootViewController: tabsController)
         window!.rootViewController = toolbarController
         window!.makeKeyAndVisible()
+
+        //Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")!.load()
         return true
     }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */; };
+		D429D5FF20E293360057ABBB /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D429D5FE20E293360057ABBB /* Injection.swift */; };
 		D431316A20D0179F000C5F73 /* UpdateBidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D431316920D0179F000C5F73 /* UpdateBidViewController.swift */; };
 		D433509620B337F400FCB874 /* BidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D433509520B337F400FCB874 /* BidTableViewCell.swift */; };
 		D446CADB2091131000A43288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D446CAD92091131000A43288 /* Main.storyboard */; };
@@ -25,15 +26,27 @@
 		D446CB05209113A800A43288 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB01209113A800A43288 /* Game.swift */; };
 		D446CB06209113A800A43288 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB02209113A800A43288 /* Card.swift */; };
 		D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */; };
+		D472452320E3CAF500AC9BC7 /* BridgerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472452220E3CAF500AC9BC7 /* BridgerUnitTests.swift */; };
 		D49825D920C58EB3005CE16E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825D820C58EB3005CE16E /* Animator.swift */; };
 		D49825DC20C5900B005CE16E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825DB20C5900B005CE16E /* UIViewController+Alert.swift */; };
 		D49825DE20C59DE4005CE16E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49825DD20C59DE4005CE16E /* Store.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D472452520E3CAF500AC9BC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D446CACA2091131000A43288 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D446CAD12091131000A43288;
+			remoteInfo = Bridger;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0E9193C4D347163F21937956 /* Pods-Bridger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.release.xcconfig"; sourceTree = "<group>"; };
 		482521BD13A3CAD79EDAE8FA /* Pods-Bridger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bridger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bridger/Pods-Bridger.debug.xcconfig"; sourceTree = "<group>"; };
 		A3254F7FD429E4F235CA3EB9 /* Pods_Bridger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bridger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D429D5FE20E293360057ABBB /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		D431316920D0179F000C5F73 /* UpdateBidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBidViewController.swift; sourceTree = "<group>"; };
 		D433509520B337F400FCB874 /* BidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidTableViewCell.swift; sourceTree = "<group>"; };
 		D446CAD22091131000A43288 /* Bridger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bridger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +66,9 @@
 		D446CB01209113A800A43288 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D446CB02209113A800A43288 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D446CB0A20922D7000A43288 /* InputBidTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBidTableViewController.swift; sourceTree = "<group>"; };
+		D472452020E3CAF400AC9BC7 /* BridgerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BridgerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D472452220E3CAF500AC9BC7 /* BridgerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgerUnitTests.swift; sourceTree = "<group>"; };
+		D472452420E3CAF500AC9BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49825D820C58EB3005CE16E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		D49825DB20C5900B005CE16E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		D49825DD20C59DE4005CE16E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -64,6 +80,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6535E863F1C54970A52FFE30 /* Pods_Bridger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D472451D20E3CAF400AC9BC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D446CAD42091131000A43288 /* Bridger */,
+				D472452120E3CAF500AC9BC7 /* BridgerUnitTests */,
 				D446CAD32091131000A43288 /* Products */,
 				2BDC2C72BDECA3E852142601 /* Pods */,
 				DCB290A943B86087372D2E60 /* Frameworks */,
@@ -93,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				D446CAD22091131000A43288 /* Bridger.app */,
+				D472452020E3CAF400AC9BC7 /* BridgerUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,6 +138,7 @@
 				D446CADF2091131100A43288 /* Assets.xcassets */,
 				D446CAE42091131100A43288 /* Info.plist */,
 				D446CADC2091131000A43288 /* Bridger.xcdatamodeld */,
+				D429D5FE20E293360057ABBB /* Injection.swift */,
 			);
 			path = Bridger;
 			sourceTree = "<group>";
@@ -146,6 +172,15 @@
 				D446CB00209113A800A43288 /* Player.swift */,
 			);
 			path = "App Models";
+			sourceTree = "<group>";
+		};
+		D472452120E3CAF500AC9BC7 /* BridgerUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D472452220E3CAF500AC9BC7 /* BridgerUnitTests.swift */,
+				D472452420E3CAF500AC9BC7 /* Info.plist */,
+			);
+			path = BridgerUnitTests;
 			sourceTree = "<group>";
 		};
 		D49825DA20C58FBD005CE16E /* Utilities */ = {
@@ -188,18 +223,40 @@
 			productReference = D446CAD22091131000A43288 /* Bridger.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D472451F20E3CAF400AC9BC7 /* BridgerUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D472452920E3CAF500AC9BC7 /* Build configuration list for PBXNativeTarget "BridgerUnitTests" */;
+			buildPhases = (
+				D472451C20E3CAF400AC9BC7 /* Sources */,
+				D472451D20E3CAF400AC9BC7 /* Frameworks */,
+				D472451E20E3CAF400AC9BC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D472452620E3CAF500AC9BC7 /* PBXTargetDependency */,
+			);
+			name = BridgerUnitTests;
+			productName = BridgerUnitTests;
+			productReference = D472452020E3CAF400AC9BC7 /* BridgerUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D446CACA2091131000A43288 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Eduard Levshteyn";
 				TargetAttributes = {
 					D446CAD12091131000A43288 = {
 						CreatedOnToolsVersion = 9.3;
+					};
+					D472451F20E3CAF400AC9BC7 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = D446CAD12091131000A43288;
 					};
 				};
 			};
@@ -217,6 +274,7 @@
 			projectRoot = "";
 			targets = (
 				D446CAD12091131000A43288 /* Bridger */,
+				D472451F20E3CAF400AC9BC7 /* BridgerUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +287,13 @@
 				D446CAE32091131100A43288 /* LaunchScreen.storyboard in Resources */,
 				D446CAE02091131100A43288 /* Assets.xcassets in Resources */,
 				D446CADB2091131000A43288 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D472451E20E3CAF400AC9BC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,12 +373,29 @@
 				D446CAF32091138500A43288 /* AppTabsController.swift in Sources */,
 				D446CB06209113A800A43288 /* Card.swift in Sources */,
 				D446CAF22091138500A43288 /* GamesNavigationController.swift in Sources */,
+				D429D5FF20E293360057ABBB /* Injection.swift in Sources */,
 				D446CB0B20922D7000A43288 /* InputBidTableViewController.swift in Sources */,
 				D446CB03209113A800A43288 /* Bid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D472451C20E3CAF400AC9BC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D472452320E3CAF500AC9BC7 /* BridgerUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D472452620E3CAF500AC9BC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D446CAD12091131000A43288 /* Bridger */;
+			targetProxy = D472452520E3CAF500AC9BC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D446CAD92091131000A43288 /* Main.storyboard */ = {
@@ -489,6 +571,48 @@
 			};
 			name = Release;
 		};
+		D472452720E3CAF500AC9BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3987LS8PQB;
+				INFOPLIST_FILE = BridgerUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eduardlevshteyn.BridgerUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bridger.app/Bridger";
+			};
+			name = Debug;
+		};
+		D472452820E3CAF500AC9BC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3987LS8PQB;
+				INFOPLIST_FILE = BridgerUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eduardlevshteyn.BridgerUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bridger.app/Bridger";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -506,6 +630,15 @@
 			buildConfigurations = (
 				D446CAE82091131100A43288 /* Debug */,
 				D446CAE92091131100A43288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D472452920E3CAF500AC9BC7 /* Build configuration list for PBXNativeTarget "BridgerUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D472452720E3CAF500AC9BC7 /* Debug */,
+				D472452820E3CAF500AC9BC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

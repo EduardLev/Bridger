@@ -45,7 +45,11 @@ class BidsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
 
-        NotificationCenter.default.addObserver(self, selector: #selector(handleChangeNotification(_:)), name: Store.changedNotification, object: nil)
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(handleChangeNotification(_:)),
+                         name: Store.changedNotification,
+                         object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +87,7 @@ extension BidsViewController {
 
     // Configures the look of the tab button corresponding to this view controller.
     fileprivate func prepareTabItem() {
-        tabItem.title = "Bids"
+        tabItem.title = .tabItemTitle
         tabItem.image = Icon.history
         tabItem.pulseAnimation = .backing
         tabItem.pulseColor = Color.green.base
@@ -91,7 +95,7 @@ extension BidsViewController {
 
     // Configure the image view that is shown on screen when there are no bids in the current Game.
     fileprivate func prepareImageView() {
-        let image = UIImage(named: "Hold Screen")
+        let image = UIImage(named: .holdScreenImageName)
         imageView = UIImageView(image: image)
     }
 
@@ -121,11 +125,7 @@ extension BidsViewController {
     }
 
     fileprivate func prepareStackView() {
-        stackView = UIStackView()
-
-        stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(emptyLabel)
-        stackView.addArrangedSubview(emptyInstructionsLabel)
+        stackView = UIStackView(arrangedSubviews: [imageView, emptyLabel, emptyInstructionsLabel])
 
         stackView.spacing = Layout.stackViewSpacing
         stackView.alignment = .center
@@ -140,7 +140,8 @@ extension BidsViewController {
 
     fileprivate func pushUpdateBidViewController() {
         guard let selectedBid = selectedBid else { return }
-        if let updateBidViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "updateBidViewController") as? UpdateBidViewController {
+        if let updateBidViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "updateBidViewController") as? UpdateBidViewController {
             updateBidViewController.bid = selectedBid
             self.present(updateBidViewController, animated: true, completion: nil)
         }
@@ -194,7 +195,9 @@ extension BidsViewController: UITableViewDelegate, UITableViewDataSource {
         return true // OK
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCellEditingStyle,
+                   forRowAt indexPath: IndexPath) {
         game.removeBid(game.bids[indexPath.row])
     }
 
@@ -218,9 +221,18 @@ extension BidsViewController {
     }
 
     private var font: UIFont {
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(24.0))
+        return UIFontMetrics(forTextStyle: .body)
+            .scaledFont(for: UIFont.preferredFont(forTextStyle: .body)
+                .withSize(24.0))
     }
 
     private static let bidCellReuseIdentifier = "Bid Cell"
     private static let updateBidViewController = "UpdateBidViewController"
+}
+
+fileprivate extension String {
+    static let tabItemTitle = NSLocalizedString("Bids", comment: "Title for the tab item of this view controller.")
+    static let title = NSLocalizedString("Bridger", comment: "The name of the app, displayed as the title.")
+    static let empty = NSLocalizedString("   Empty...", comment: "The string empty for no bids.")
+    static let holdScreenImageName = "Hold Screen"
 }

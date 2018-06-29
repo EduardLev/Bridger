@@ -18,6 +18,12 @@ class BidTableViewCell: UITableViewCell {
     fileprivate let doubledLabel = UILabel()
     fileprivate let vulnerableLabel = UILabel()
 
+    fileprivate var largeStackView: UIStackView!
+    fileprivate var smallStackView: UIStackView!
+
+    fileprivate lazy var viewOutletCollection = [declarerLabel, tricksWonLabel, tricksLabel,
+                                            trumpImageView, doubledLabel, vulnerableLabel]
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         prepareViews()
@@ -27,27 +33,40 @@ class BidTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func prepare(declarer: String, tricks: Int, trump: String, vulnerable: Bool, doubled: Bid.DoubleStatus,
-                        tricksWon: Int?) {
-        // Set Up Declarer Label
+    // MARK: View Preparation
+
+    public func prepare(declarer: String, tricks: Int, trump: String, vulnerable: Bool,
+                        doubled: Bid.DoubleStatus, tricksWon: Int?) {
+        setupDeclarerLabel(withDeclarer: declarer)
+        setupTricksLabel(withTricks: tricks)
+        setupDoubledLabel(withDoubledStatus: doubled)
+        setupVulnerableLabel(withVulnerableStatus: vulnerable)
+        setupTrumpImageView(withTrump: trump)
+        setupTricksWonLabel(withTricksWon: tricksWon, andTricks: tricks)
+    }
+
+    fileprivate func setupDeclarerLabel(withDeclarer declarer: String) {
         declarerLabel.text = declarer
         declarerLabel.adjustsFontSizeToFitWidth = true
         declarerLabel.font = largeLabelFont
+    }
 
-        // Set Up Tricks Label
+    fileprivate func setupTricksLabel(withTricks tricks: Int) {
         tricksLabel.text = String(tricks - 6)
         tricksLabel.adjustsFontSizeToFitWidth = true
         tricksLabel.font = largeLabelFont
+    }
 
-        // Set Up Doubled Label
+    fileprivate func setupDoubledLabel(withDoubledStatus doubled: Bid.DoubleStatus) {
         switch doubled {
         case .regular: doubledLabel.text = "Not Doubled"; doubledLabel.textColor = Color.green.base
         case .doubled: doubledLabel.text = "Doubled"; doubledLabel.textColor = Color.red.base
         case .redoubled: doubledLabel.text = "Redoubled"; doubledLabel.textColor = Color.red.accent3
         }
         doubledLabel.font = smallLabelFont
+    }
 
-        // Set Up Vulnerable Label
+    fileprivate func setupVulnerableLabel(withVulnerableStatus vulnerable: Bool) {
         if vulnerable {
             vulnerableLabel.text = "Vulnerable"
             vulnerableLabel.textColor = Color.red.base
@@ -56,11 +75,13 @@ class BidTableViewCell: UITableViewCell {
             vulnerableLabel.textColor = Color.green.base
         }
         vulnerableLabel.font = smallLabelFont
+    }
 
-        // Set up Trump Image View
+    fileprivate func setupTrumpImageView(withTrump trump: String) {
         trumpImageView.image = UIImage(named: trump)
+    }
 
-        // Set up Tricks Won Label
+    fileprivate func setupTricksWonLabel(withTricksWon tricksWon: Int?, andTricks tricks: Int) {
         if let tricksWon = tricksWon {
             if tricksWon >= tricks {
                 tricksWonLabel.text = "Successful: \(tricksWon) tricks"
@@ -74,46 +95,49 @@ class BidTableViewCell: UITableViewCell {
             tricksWonLabel.textColor = UIColor.black
         }
         tricksWonLabel.font = smallLabelFont
-
     }
 
     fileprivate func prepareViews() {
-        contentView.addSubview(trumpImageView)
+        viewOutletCollection.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        prepareTrumpImageView()
+        prepareLargeStackView()
+        prepareSmallStackView()
+        prepareTricksWonLabel()
+    }
+
+    fileprivate func prepareTricksWonLabel() {
         contentView.addSubview(tricksWonLabel)
 
-        trumpImageView.translatesAutoresizingMaskIntoConstraints = false
-        tricksWonLabel.translatesAutoresizingMaskIntoConstraints = false
-        declarerLabel.translatesAutoresizingMaskIntoConstraints = false
-        tricksLabel.translatesAutoresizingMaskIntoConstraints = false
-        vulnerableLabel.translatesAutoresizingMaskIntoConstraints = false
-        doubledLabel.translatesAutoresizingMaskIntoConstraints = false
+        tricksWonLabel.leadingAnchor
+            .constraint(equalTo: largeStackView.trailingAnchor, constant: 10).isActive = true
+        tricksWonLabel.bottomAnchor
+            .constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+    }
 
-        let smallStackView = UIStackView(arrangedSubviews: [doubledLabel, vulnerableLabel])
-        smallStackView.axis = .vertical
+    fileprivate func prepareTrumpImageView() {
+        contentView.addSubview(trumpImageView)
+        contentView.layout(trumpImageView).right(30).centerVertically().height(bounds.size.height)
+            .width(bounds.size.height)
+        trumpImageView.contentMode = .scaleAspectFill
+    }
+
+    fileprivate func prepareSmallStackView() {
+        smallStackView = UIStackView(arrangedSubviews: [doubledLabel, vulnerableLabel])
         smallStackView.translatesAutoresizingMaskIntoConstraints = false
+        smallStackView.axis = .vertical
         contentView.addSubview(smallStackView)
 
-        let largeStackView = UIStackView(arrangedSubviews: [declarerLabel, tricksLabel])
+        smallStackView.leadingAnchor
+            .constraint(equalTo: largeStackView.trailingAnchor, constant: 10).isActive = true
+        smallStackView.topAnchor
+            .constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+    }
+
+    fileprivate func prepareLargeStackView() {
+        largeStackView = UIStackView(arrangedSubviews: [declarerLabel, tricksLabel])
         largeStackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(largeStackView)
         contentView.layout(largeStackView).left(10).centerVertically()
-
-        smallStackView.leadingAnchor.constraint(equalTo: largeStackView.trailingAnchor, constant: 10)
-            .isActive = true
-        smallStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
-            .isActive = true
-
-        tricksWonLabel.leadingAnchor.constraint(equalTo: largeStackView.trailingAnchor, constant: 10)
-            .isActive = true
-        tricksWonLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
-            .isActive = true
-
-        contentView.layout(trumpImageView)
-            .right(30)
-            .centerVertically()
-            .height(bounds.size.height)
-            .width(bounds.size.height)
-        trumpImageView.contentMode = .scaleAspectFill
     }
 }
 
