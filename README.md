@@ -7,7 +7,7 @@ Scores contract & rubber style bridge games for iOS.
 
 ![Bridger Image](https://github.com/EduardLev/Bridger/raw/master/BridgerLogo.png)
 
-## Acknowledgments
+## Demo
 
-* To Come
+![Bridger Demo GIF](https://github.com/EduardLev/Bridger/raw/master/BridgerDemoAppGif.gif)
 
