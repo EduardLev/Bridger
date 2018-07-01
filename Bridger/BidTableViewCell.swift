@@ -11,6 +11,7 @@ import Material
 
 class BidTableViewCell: UITableViewCell {
 
+    // View Properties
     fileprivate let declarerLabel = UILabel()
     fileprivate let tricksWonLabel = UILabel()
     fileprivate let tricksLabel = UILabel()
