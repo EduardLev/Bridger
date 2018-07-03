@@ -148,14 +148,14 @@ extension GameViewController: UITableViewDataSource {
             cell.textLabel?.text = String(game.weOverScore[indexPath.row])
             return cell
         } else if tableView == weUnderTableView {
-            cell.textLabel?.text = String(Array(game.weUnderScore.values).reduce([], { $0 + $1 })[indexPath.row])
+            cell.textLabel?.text = String(game.weUnderScore.flatMap({$0})[indexPath.row])
             return cell
         } else if tableView == theyOverTableView {
             cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
             cell.textLabel?.text = String(game.theyOverScore[indexPath.row])
             return cell
         } else if tableView == theyUnderTableView {
-            cell.textLabel?.text = String(Array(game.theyUnderScore.values).reduce([], { $0 + $1 })[indexPath.row])
+            cell.textLabel?.text = String(game.theyUnderScore.flatMap({$0})[indexPath.row])
             return cell
         }
 

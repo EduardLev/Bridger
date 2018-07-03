@@ -30,9 +30,9 @@ class Game: Codable {
 
     // Game state properties
     private(set) var weOverScore = [Int]()
-    private(set) var weUnderScore = [String: [Int]]()
+    private(set) var weUnderScore = [[Int]]()
     private(set) var theyOverScore = [Int]()
-    private(set) var theyUnderScore = [String: [Int]]()
+    private(set) var theyUnderScore = [[Int]]()
 
     // Rubber bridge "games" properties
     private var rubberOneCompleted = false
@@ -59,9 +59,9 @@ class Game: Codable {
         let uuid = try container.decode(UUID.self, forKey: .uuid)
         let name = try container.decode(String.self, forKey: .name)
         let weOverScore = try container.decode([Int].self, forKey: .weOverScore)
-        let weUnderScore = try container.decode([String: [Int]].self, forKey: .weUnderScore)
+        let weUnderScore = try container.decode([[Int]].self, forKey: .weUnderScore)
         let theyOverScore = try container.decode([Int].self, forKey: .theyOverScore)
-        let theyUnderScore = try container.decode([String: [Int]].self, forKey: .theyUnderScore)
+        let theyUnderScore = try container.decode([[Int]].self, forKey: .theyUnderScore)
         let rubberOneCompleted = try container.decode(Bool.self, forKey: .rubberOneCompleted)
         let rubberTwoCompleted = try container.decode(Bool.self, forKey: .rubberTwoCompleted)
         let rubberThreeCompleted = try container.decode(Bool.self, forKey: .rubberThreeCompleted)
@@ -156,9 +156,9 @@ class Game: Codable {
     /// Sets the scoring to 0 so the Game scores can be recalculated
     fileprivate func resetGameState() {
         weOverScore = []
-        weUnderScore = [:]
+        weUnderScore = [[], [], []]
         theyOverScore = []
-        theyUnderScore = [:]
+        theyUnderScore = [[], [], []]
 
         rubberOneCompleted = false
         rubberTwoCompleted = false
@@ -225,40 +225,25 @@ extension Game {
 
     fileprivate func updateGameScoreForSuccessfulBid(bid: Bid,
                                                      withOverScore overScore: inout [Int],
-                                                     andUnderScore underScore: inout [String: [Int]],
+                                                     andUnderScore underScore: inout [[Int]],
                                                      andWinner winner: String) {
         overScore.append(bid.overTheLineScore)
 
         if !rubberOneCompleted {
-            if underScore[Game.rubberOne] != nil {
-                underScore[Game.rubberOne]!.append(bid.underTheLineScore)
-            } else {
-                underScore[Game.rubberOne] = [bid.underTheLineScore]
-            }
-            if let gameOneScore = underScore[Game.rubberOne]?.reduce(0, +) {
-                rubberOneCompleted = gameOneScore >= 100
-                if rubberOneCompleted { updateRubberWinStatus(withWinner: winner) }
-            }
+            underScore[0].append(bid.underTheLineScore)
+            let gameOneScore = underScore[0].reduce(0, +)
+            rubberOneCompleted = gameOneScore >= 100
+            if rubberOneCompleted { updateRubberWinStatus(withWinner: winner) }
         } else if !rubberTwoCompleted {
-            if underScore[Game.rubberTwo] != nil {
-                underScore[Game.rubberTwo]!.append(bid.underTheLineScore)
-            } else {
-                underScore[Game.rubberTwo] = [bid.underTheLineScore]
-            }
-            if let gameTwoScore = underScore[Game.rubberTwo]?.reduce(0, +) {
-                rubberTwoCompleted = gameTwoScore >= 100
-                if rubberTwoCompleted { updateRubberWinStatus(withWinner: winner) }
-            }
+            underScore[1].append(bid.underTheLineScore)
+            let gameTwoScore = underScore[1].reduce(0, +)
+            rubberTwoCompleted = gameTwoScore >= 100
+            if rubberTwoCompleted { updateRubberWinStatus(withWinner: winner) }
         } else if !rubberThreeCompleted {
-            if underScore[Game.rubberThree] != nil {
-                underScore[Game.rubberThree]!.append(bid.underTheLineScore)
-            } else {
-                underScore[Game.rubberThree] = [bid.underTheLineScore]
-            }
-            if let gameThreeScore = underScore[Game.rubberTwo]?.reduce(0, +) {
-                rubberThreeCompleted = gameThreeScore >= 100
-                if rubberThreeCompleted { updateRubberWinStatus(withWinner: winner) }
-            }
+            underScore[2].append(bid.underTheLineScore)
+            let gameThreeScore = underScore[2].reduce(0, +)
+            rubberThreeCompleted = gameThreeScore >= 100
+            if rubberThreeCompleted { updateRubberWinStatus(withWinner: winner) }
         } else {
             // game over!
         }
@@ -292,8 +277,8 @@ extension Game {
         return rubber.reduce(0, +)
     }
 
-    fileprivate func calculateTotalPlayerScore(withOver over: [Int], andUnder under: [String: [Int]]) -> Int {
-        return (over + under.lazy.reduce([], {$0 + $1.value})).lazy.reduce(0, +)
+    fileprivate func calculateTotalPlayerScore(withOver over: [Int], andUnder under: [[Int]]) -> Int {
+        return (over + under.flatMap {$0}).lazy.reduce(0, +)
     }
 }
 
