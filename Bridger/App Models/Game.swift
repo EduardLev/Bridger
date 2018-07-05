@@ -192,6 +192,7 @@ extension Game {
     fileprivate func updateGameScoreForUpdatedBid(_ bid: Bid) {
         guard let bidSuccess = bid.wasSuccessful else { fatalError() }
 
+        
         if bid.declarer == .east || bid.declarer == .west { // WE DECLARED
             if bidSuccess {
                 updateGameScoreForSuccessfulBid(bid: bid,
