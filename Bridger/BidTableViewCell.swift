@@ -117,8 +117,8 @@ class BidTableViewCell: UITableViewCell {
 
     fileprivate func prepareTrumpImageView() {
         contentView.addSubview(trumpImageView)
-        contentView.layout(trumpImageView).right(30).centerVertically().height(bounds.size.height)
-            .width(bounds.size.height)
+        contentView.layout(trumpImageView)
+            .right(30).centerVertically().height(bounds.size.height).width(bounds.size.height)
         trumpImageView.contentMode = .scaleAspectFill
     }
 
